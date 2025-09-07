@@ -71,39 +71,39 @@
         },
       };
     </script>
-    
+
     <!-- Language Toggle JavaScript -->
     <script>
       // Set default language to English
       let currentLanguage = 'en';
-      
+
       function setLanguage(lang) {
         currentLanguage = lang;
-        
+
         // Update button styles
-        document.querySelectorAll('.lang-toggle').forEach(btn => {
+        document.querySelectorAll('.lang-toggle').forEach((btn) => {
           btn.classList.remove('text-ablegold', 'font-medium');
           btn.classList.add('text-gray-400', 'hover:text-gray-300');
         });
-        
+
         const activeBtn = document.getElementById(`lang-${lang}`);
         activeBtn.classList.remove('text-gray-400', 'hover:text-gray-300');
         activeBtn.classList.add('text-ablegold', 'font-medium');
-        
+
         // Show/hide language content
-        document.querySelectorAll('[data-lang]').forEach(el => {
+        document.querySelectorAll('[data-lang]').forEach((el) => {
           if (el.getAttribute('data-lang') === lang) {
             el.style.display = '';
           } else {
             el.style.display = 'none';
           }
         });
-        
+
         // Handle elements with both languages (show both by default, hide one when specific language selected)
-        document.querySelectorAll('.lang-both').forEach(el => {
+        document.querySelectorAll('.lang-both').forEach((el) => {
           const enContent = el.querySelector('.lang-en-content');
           const frContent = el.querySelector('.lang-fr-content');
-          
+
           if (lang === 'en' && frContent) {
             frContent.style.display = 'none';
             if (enContent) enContent.style.display = '';
@@ -117,47 +117,47 @@
           }
         });
       }
-      
+
       // Initialize on page load
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         setLanguage('en');
         initVideoPlayer();
       });
-      
+
       // Video player initialization
       function initVideoPlayer() {
         const video = document.querySelector('video');
         const placeholder = document.getElementById('video-placeholder');
         const playOverlay = document.querySelector('.group .absolute.inset-0');
-        
+
         if (video && placeholder) {
           // Hide placeholder when video can play
-          video.addEventListener('loadeddata', function() {
+          video.addEventListener('loadeddata', function () {
             placeholder.style.display = 'none';
           });
-          
+
           // Hide play overlay when video starts playing
-          video.addEventListener('play', function() {
+          video.addEventListener('play', function () {
             if (playOverlay) {
               playOverlay.style.display = 'none';
             }
           });
-          
+
           // Show play overlay when video is paused or ends
-          video.addEventListener('pause', function() {
+          video.addEventListener('pause', function () {
             if (playOverlay) {
               playOverlay.style.display = 'flex';
             }
           });
-          
-          video.addEventListener('ended', function() {
+
+          video.addEventListener('ended', function () {
             if (playOverlay) {
               playOverlay.style.display = 'flex';
             }
           });
-          
+
           // Handle loading errors
-          video.addEventListener('error', function() {
+          video.addEventListener('error', function () {
             placeholder.innerHTML = `
               <div class="text-center">
                 <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
@@ -289,7 +289,7 @@
               <h1
                 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
               >
-                2025 ABLE Gala
+                2025 A.B.L.E. Gala
               </h1>
 
               <!-- Theme -->
@@ -300,7 +300,9 @@
                   Strength Through Struggle:<br />
                   A Journey of Perseverance and Endurance
                 </p>
-                <p class="lang-fr-content text-gray-400 text-base italic max-w-2xl">
+                <p
+                  class="lang-fr-content text-gray-400 text-base italic max-w-2xl"
+                >
                   La force par l'épreuve : un parcours de persévérance et
                   d'endurance
                 </p>
@@ -351,13 +353,19 @@
 
             <!-- ABLE Logo Feature -->
             <div class="lg:col-span-5 mt-12 lg:mt-0">
-              <div class="relative flex flex-col items-center justify-center lg:items-end">
+              <div
+                class="relative flex flex-col items-center justify-center lg:items-end"
+              >
                 <!-- Large ABLE Logo with styling -->
                 <div class="relative mb-6">
                   <!-- Subtle glow behind logo -->
-                  <div class="absolute inset-0 bg-ablegold/10 rounded-full blur-2xl transform scale-125"></div>
+                  <div
+                    class="absolute inset-0 bg-ablegold/10 rounded-full blur-2xl transform scale-125"
+                  ></div>
                   <!-- Logo container with decorative border -->
-                  <div class="relative w-64 h-64 flex items-center justify-center rounded-full border border-ablegold/20 bg-gradient-to-br from-ablegold/5 to-transparent">
+                  <div
+                    class="relative w-64 h-64 flex items-center justify-center rounded-full border border-ablegold/20 bg-gradient-to-br from-ablegold/5 to-transparent"
+                  >
                     <img
                       src="able_logo.png"
                       alt="Association of Black Law Enforcers (A.B.L.E.) Logo"
@@ -365,20 +373,28 @@
                     />
                   </div>
                   <!-- Additional subtle glow effect -->
-                  <div class="absolute inset-0 rounded-full bg-ablegold/5 blur-xl"></div>
+                  <div
+                    class="absolute inset-0 rounded-full bg-ablegold/5 blur-xl"
+                  ></div>
                 </div>
-                
+
                 <!-- Date Display -->
                 <div class="text-center lg:text-right">
-                  <div class="text-ablegold font-display text-2xl sm:text-3xl font-bold tracking-wide mb-1">
+                  <div
+                    class="text-ablegold font-display text-2xl sm:text-3xl font-bold tracking-wide mb-1"
+                  >
                     Nov 1, 2025
                   </div>
-                  <div class="text-ablegold/70 text-sm uppercase tracking-widest font-medium">
+                  <div
+                    class="text-ablegold/70 text-sm uppercase tracking-widest font-medium"
+                  >
                     Save the Date
                   </div>
-                  
+
                   <!-- Subtle underline accent -->
-                  <div class="w-16 h-px bg-ablegold/40 mx-auto lg:mx-0 lg:ml-auto mt-4"></div>
+                  <div
+                    class="w-16 h-px bg-ablegold/40 mx-auto lg:mx-0 lg:ml-auto mt-4"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -397,25 +413,42 @@
           <div class="text-center mb-12">
             <div class="lang-both">
               <div class="lang-en-content">
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                <h2
+                  class="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+                >
                   Experience the Magic
                 </h2>
                 <h3 class="text-xl sm:text-2xl font-display text-ablegold mb-6">
-                  32nd A.B.L.E. Scholarship and Awards Gala Recap
+                  Recap of the 32nd A.B.L.E. Scholarship and Awards Gala
                 </h3>
                 <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  Re-cap of an incredible night at the 32nd A.B.L.E Scholarship and Awards Gala! 🎉 Huge thanks to the Ontario Provincial Police and the OPP Association for co-hosting this unforgettable event. A special thank you to all our sponsors and supporters who made this possible! Congratulations to our 11 scholarship recipients and 9 award recipients for your amazing achievements! 🌟
+                  Re-cap of an incredible night at the 32nd A.B.L.E Scholarship
+                  and Awards Gala! 🎉 Huge thanks to the Ontario Provincial
+                  Police and the OPP Association for co-hosting this
+                  unforgettable event. A special thank you to all our sponsors
+                  and supporters who made this possible! Congratulations to our
+                  11 scholarship recipients and 9 award recipients for your
+                  amazing achievements! 🌟
                 </p>
               </div>
-              <div class="lang-fr-content" style="display: none;">
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+              <div class="lang-fr-content" style="display: none">
+                <h2
+                  class="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+                >
                   Vivez la Magie
                 </h2>
                 <h3 class="text-xl sm:text-2xl font-display text-ablegold mb-6">
                   Récapitulatif du 32e Gala des bourses et des prix A.B.L.E.
                 </h3>
                 <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  Récapitulatif d'une nuit incroyable au 32e Gala des bourses et des prix A.B.L.E ! 🎉 Un grand merci à la Police provinciale de l'Ontario et à l'Association de la Police provinciale de l'Ontario pour avoir co-organisé cet événement inoubliable. Un merci spécial à tous nos sponsors et soutiens qui ont rendu cela possible ! Félicitations à nos 11 récipiendaires de bourses et à nos 9 récipiendaires de prix pour vos réalisations exceptionnelles ! 🌟
+                  Récapitulatif d'une nuit incroyable au 32e Gala des bourses et
+                  des prix A.B.L.E ! 🎉 Un grand merci à la Police provinciale
+                  de l'Ontario et à l'Association de la Police provinciale de
+                  l'Ontario pour avoir co-organisé cet événement inoubliable. Un
+                  merci spécial à tous nos sponsors et soutiens qui ont rendu
+                  cela possible ! Félicitations à nos 11 récipiendaires de
+                  bourses et à nos 9 récipiendaires de prix pour vos
+                  réalisations exceptionnelles ! 🌟
                 </p>
               </div>
             </div>
@@ -423,82 +456,137 @@
 
           <!-- Video Container -->
           <div class="relative max-w-4xl mx-auto group">
-            <div class="aspect-video bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-xl overflow-hidden shadow-2xl border border-ablegold/20 relative">
+            <div
+              class="aspect-video bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-xl overflow-hidden shadow-2xl border border-ablegold/20 relative"
+            >
               <video
                 controls
                 preload="metadata"
                 class="w-full h-full object-cover"
                 aria-label="2024 ABLE Awards Gala Recap Video"
               >
-                <source src="re-cap_32nd_awards_gala.mp4" type="video/mp4">
+                <source src="re-cap_32nd_awards_gala.mp4" type="video/mp4" />
                 <div class="lang-both">
                   <div class="lang-en-content">
                     <p class="text-gray-300 p-8 text-center">
-                      Your browser does not support the video tag. Please use a modern browser to view this content.
+                      Your browser does not support the video tag. Please use a
+                      modern browser to view this content.
                     </p>
                   </div>
-                  <div class="lang-fr-content" style="display: none;">
+                  <div class="lang-fr-content" style="display: none">
                     <p class="text-gray-300 p-8 text-center">
-                      Votre navigateur ne supporte pas la balise vidéo. Veuillez utiliser un navigateur moderne pour voir ce contenu.
+                      Votre navigateur ne supporte pas la balise vidéo. Veuillez
+                      utiliser un navigateur moderne pour voir ce contenu.
                     </p>
                   </div>
                 </div>
               </video>
-              
+
               <!-- Custom Play Button Overlay -->
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:bg-black/10 transition-colors duration-300">
-                <div class="bg-black/60 backdrop-blur-sm rounded-full p-6 border border-ablegold/30 shadow-2xl transform group-hover:scale-110 transition-all duration-300 group-hover:bg-black/70">
+              <div
+                class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:bg-black/10 transition-colors duration-300"
+              >
+                <div
+                  class="bg-black/60 backdrop-blur-sm rounded-full p-6 border border-ablegold/30 shadow-2xl transform group-hover:scale-110 transition-all duration-300 group-hover:bg-black/70"
+                >
                   <!-- Play Icon SVG -->
-                  <svg class="w-12 h-12 text-ablegold ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
+                  <svg
+                    class="w-12 h-12 text-ablegold ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
-              
+
               <!-- Video Loading State -->
-              <div class="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center" id="video-placeholder">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center"
+                id="video-placeholder"
+              >
                 <div class="text-center">
-                  <div class="w-16 h-16 border-4 border-ablegold/20 border-t-ablegold rounded-full animate-spin mb-4"></div>
+                  <div
+                    class="w-16 h-16 border-4 border-ablegold/20 border-t-ablegold rounded-full animate-spin mb-4"
+                  ></div>
                   <div class="lang-both">
-                    <p class="lang-en-content text-gray-400 text-sm">Loading video...</p>
-                    <p class="lang-fr-content text-gray-400 text-sm" style="display: none;">Chargement de la vidéo...</p>
+                    <p class="lang-en-content text-gray-400 text-sm">
+                      Loading video...
+                    </p>
+                    <p
+                      class="lang-fr-content text-gray-400 text-sm"
+                      style="display: none"
+                    >
+                      Chargement de la vidéo...
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <!-- Video Overlay Badge -->
             <div class="absolute -top-4 -right-4">
-              <div class="bg-ablegold text-black text-xs font-bold px-3 py-2 rounded-full shadow-lg">
+              <div
+                class="bg-ablegold text-black text-xs font-bold px-3 py-2 rounded-full shadow-lg"
+              >
                 <div class="lang-both">
                   <span class="lang-en-content">2024 Highlights</span>
-                  <span class="lang-fr-content" style="display: none;">Moments forts 2024</span>
+                  <span class="lang-fr-content" style="display: none"
+                    >Moments forts 2024</span
+                  >
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Key Statistics -->
-          <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+          <div
+            class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
+          >
             <div class="text-center">
-              <div class="text-3xl font-display font-bold text-ablegold mb-2">32nd</div>
+              <div class="text-3xl font-display font-bold text-ablegold mb-2">
+                32nd
+              </div>
               <div class="lang-both">
                 <p class="lang-en-content text-gray-300 text-sm">Annual Gala</p>
-                <p class="lang-fr-content text-gray-300 text-sm" style="display: none;">Gala Annuel</p>
+                <p
+                  class="lang-fr-content text-gray-300 text-sm"
+                  style="display: none"
+                >
+                  Gala Annuel
+                </p>
               </div>
             </div>
             <div class="text-center">
-              <div class="text-3xl font-display font-bold text-ablegold mb-2">11</div>
+              <div class="text-3xl font-display font-bold text-ablegold mb-2">
+                11
+              </div>
               <div class="lang-both">
-                <p class="lang-en-content text-gray-300 text-sm">Scholarship Recipients</p>
-                <p class="lang-fr-content text-gray-300 text-sm" style="display: none;">Récipiendaires de bourses</p>
+                <p class="lang-en-content text-gray-300 text-sm">
+                  Scholarship Recipients
+                </p>
+                <p
+                  class="lang-fr-content text-gray-300 text-sm"
+                  style="display: none"
+                >
+                  Récipiendaires de bourses
+                </p>
               </div>
             </div>
             <div class="text-center">
-              <div class="text-3xl font-display font-bold text-ablegold mb-2">9</div>
+              <div class="text-3xl font-display font-bold text-ablegold mb-2">
+                9
+              </div>
               <div class="lang-both">
-                <p class="lang-en-content text-gray-300 text-sm">Award Recipients</p>
-                <p class="lang-fr-content text-gray-300 text-sm" style="display: none;">Récipiendaires de prix</p>
+                <p class="lang-en-content text-gray-300 text-sm">
+                  Award Recipients
+                </p>
+                <p
+                  class="lang-fr-content text-gray-300 text-sm"
+                  style="display: none"
+                >
+                  Récipiendaires de prix
+                </p>
               </div>
             </div>
           </div>
@@ -508,7 +596,8 @@
             <div class="lang-both">
               <div class="lang-en-content">
                 <p class="text-gray-400 mb-6">
-                  Join us for the 2025 gala and be part of our continuing legacy of excellence.
+                  Join us for the 2025 gala and be part of our continuing legacy
+                  of excellence.
                 </p>
                 <a
                   href="#tickets"
@@ -517,9 +606,10 @@
                   Get Your 2025 Tickets
                 </a>
               </div>
-              <div class="lang-fr-content" style="display: none;">
+              <div class="lang-fr-content" style="display: none">
                 <p class="text-gray-400 mb-6">
-                  Rejoignez-nous pour le gala 2025 et faites partie de notre héritage continu d'excellence.
+                  Rejoignez-nous pour le gala 2025 et faites partie de notre
+                  héritage continu d'excellence.
                 </p>
                 <a
                   href="#tickets"
@@ -534,14 +624,21 @@
           <!-- Social Hashtags -->
           <div class="mt-8 text-center">
             <div class="flex flex-wrap justify-center gap-2">
-              <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20">
+              <span
+                class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20"
+              >
                 #ablegala2024
               </span>
               <div class="lang-both">
-                <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20 lang-en-content">
+                <span
+                  class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20 lang-en-content"
+                >
                   #CelebratingExcellence
                 </span>
-                <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20 lang-fr-content" style="display: none;">
+                <span
+                  class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20 lang-fr-content"
+                  style="display: none"
+                >
                   #CélébronsLExcellence
                 </span>
               </div>
@@ -635,121 +732,210 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
           <!-- Section Header -->
           <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+            <h2
+              class="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+            >
               Get Your Tickets
             </h2>
-            <h3 class="text-2xl sm:text-3xl font-display font-semibold text-gray-300 mb-6">
+            <h3
+              class="text-2xl sm:text-3xl font-display font-semibold text-gray-300 mb-6"
+            >
               Obtenez vos billets
             </h3>
             <p class="text-gray-400 max-w-2xl mx-auto">
-              Join us for an unforgettable evening celebrating leadership, service, and excellence.
+              Join us for an unforgettable evening celebrating leadership,
+              service, and excellence.
             </p>
           </div>
 
           <!-- Ticket Options -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          >
             <!-- Standard Ticket -->
-            <div class="bg-neutral-900 rounded-lg border border-ablegold/20 p-6">
-              <h4 class="text-xl font-display font-bold text-white mb-3 text-center">
+            <div
+              class="bg-neutral-900 rounded-lg border border-ablegold/20 p-6"
+            >
+              <h4
+                class="text-xl font-display font-bold text-white mb-3 text-center"
+              >
                 Standard Admission
               </h4>
-              <div class="text-3xl font-display font-bold text-ablegold mb-4 text-center">
+              <div
+                class="text-3xl font-display font-bold text-ablegold mb-4 text-center"
+              >
                 $150
               </div>
               <div class="text-left space-y-3">
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Three-course plated dinner</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Three-course plated dinner
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Full evening program and awards ceremony</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Full evening program and awards ceremony
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Open bar with wine and beer</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Open bar with wine and beer
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
                   <p class="text-gray-300 text-sm">Networking opportunities</p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Commemorative program booklet</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Commemorative program booklet
+                  </p>
                 </div>
               </div>
             </div>
 
             <!-- VIP Ticket -->
-            <div class="bg-neutral-900 rounded-lg border-2 border-ablegold p-6 relative">
+            <div
+              class="bg-neutral-900 rounded-lg border-2 border-ablegold p-6 relative"
+            >
               <!-- Popular Badge -->
               <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span class="bg-ablegold text-black text-xs font-bold px-3 py-1 rounded-full">
+                <span
+                  class="bg-ablegold text-black text-xs font-bold px-3 py-1 rounded-full"
+                >
                   POPULAR
                 </span>
               </div>
-              <h4 class="text-xl font-display font-bold text-white mb-3 text-center">
+              <h4
+                class="text-xl font-display font-bold text-white mb-3 text-center"
+              >
                 VIP Experience
               </h4>
-              <div class="text-3xl font-display font-bold text-ablegold mb-4 text-center">
+              <div
+                class="text-3xl font-display font-bold text-ablegold mb-4 text-center"
+              >
                 $250
               </div>
               <div class="text-left space-y-3">
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">All Standard Admission benefits</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    All Standard Admission benefits
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Premium reserved seating (front tables)</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Premium reserved seating (front tables)
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Exclusive VIP cocktail reception (6:00 PM)</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Exclusive VIP cocktail reception (6:00 PM)
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Meet and greet with keynote speakers</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Meet and greet with keynote speakers
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Premium gift bag and commemorative item</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Premium gift bag and commemorative item
+                  </p>
                 </div>
               </div>
             </div>
 
             <!-- Table Sponsor -->
-            <div class="bg-neutral-900 rounded-lg border border-ablegold/20 p-6">
-              <h4 class="text-xl font-display font-bold text-white mb-3 text-center">
+            <div
+              class="bg-neutral-900 rounded-lg border border-ablegold/20 p-6"
+            >
+              <h4
+                class="text-xl font-display font-bold text-white mb-3 text-center"
+              >
                 Table Sponsorship
               </h4>
-              <div class="text-3xl font-display font-bold text-ablegold mb-4 text-center">
+              <div
+                class="text-3xl font-display font-bold text-ablegold mb-4 text-center"
+              >
                 $1,500
               </div>
               <div class="text-left space-y-3">
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Reserved table for 8 guests</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Reserved table for 8 guests
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Premium placement near the stage</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Premium placement near the stage
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Company/organization recognition in program</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Company/organization recognition in program
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Logo display on event materials</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Logo display on event materials
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">VIP reception access for table host</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    VIP reception access for table host
+                  </p>
                 </div>
                 <div class="flex items-start">
-                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <p class="text-gray-300 text-sm">Tax-deductible sponsorship benefits</p>
+                  <div
+                    class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></div>
+                  <p class="text-gray-300 text-sm">
+                    Tax-deductible sponsorship benefits
+                  </p>
                 </div>
               </div>
             </div>
@@ -766,8 +952,13 @@
               </a>
             </div>
             <p class="text-gray-500 text-sm">
-              Secure online ticketing powered by Eventbrite<br>
-              Questions? Contact us at <a href="mailto:tickets@ableorg.ca" class="text-ablegold hover:text-amber-400">tickets@ableorg.ca</a>
+              Secure online ticketing powered by Eventbrite<br />
+              Questions? Contact us at
+              <a
+                href="mailto:tickets@ableorg.ca"
+                class="text-ablegold hover:text-amber-400"
+                >tickets@ableorg.ca</a
+              >
             </p>
           </div>
         </div>
