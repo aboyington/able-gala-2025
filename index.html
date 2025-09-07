@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      2025 ABLE Gala – Association of Black Law Enforcers (A.B.L.E.)
+    </title>
+    <meta
+      name="description"
+      content="Join us for the 2025 ABLE Gala: Strength Through Struggle - A Journey of Perseverance and Endurance. Saturday, November 1, 2025 at Exhibition Place, Toronto."
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="2025 ABLE Gala – Association of Black Law Enforcers"
+    />
+    <meta
+      property="og:description"
+      content="Join us for the 2025 ABLE Gala: Strength Through Struggle - A Journey of Perseverance and Endurance. Saturday, November 1, 2025 at Exhibition Place, Toronto."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://localhost/ableorg.ca" />
+    <meta
+      property="og:image"
+      content="http://localhost/ableorg.ca/assets/og-image.jpg"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="2025 ABLE Gala – Association of Black Law Enforcers"
+    />
+    <meta
+      name="twitter:description"
+      content="Join us for the 2025 ABLE Gala: Strength Through Struggle - A Journey of Perseverance and Endurance. Saturday, November 1, 2025 at Exhibition Place, Toronto."
+    />
+    <meta
+      name="twitter:image"
+      content="http://localhost/ableorg.ca/assets/og-image.jpg"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="able_logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ablegold: '#D4AF37',
+              abledark: '#0B0F19',
+            },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              display: ['Playfair Display', 'ui-serif', 'Georgia'],
+            },
+          },
+        },
+      };
+    </script>
+    
+    <!-- Language Toggle JavaScript -->
+    <script>
+      // Set default language to English
+      let currentLanguage = 'en';
+      
+      function setLanguage(lang) {
+        currentLanguage = lang;
+        
+        // Update button styles
+        document.querySelectorAll('.lang-toggle').forEach(btn => {
+          btn.classList.remove('text-ablegold', 'font-medium');
+          btn.classList.add('text-gray-400', 'hover:text-gray-300');
+        });
+        
+        const activeBtn = document.getElementById(`lang-${lang}`);
+        activeBtn.classList.remove('text-gray-400', 'hover:text-gray-300');
+        activeBtn.classList.add('text-ablegold', 'font-medium');
+        
+        // Show/hide language content
+        document.querySelectorAll('[data-lang]').forEach(el => {
+          if (el.getAttribute('data-lang') === lang) {
+            el.style.display = '';
+          } else {
+            el.style.display = 'none';
+          }
+        });
+        
+        // Handle elements with both languages (show both by default, hide one when specific language selected)
+        document.querySelectorAll('.lang-both').forEach(el => {
+          const enContent = el.querySelector('.lang-en-content');
+          const frContent = el.querySelector('.lang-fr-content');
+          
+          if (lang === 'en' && frContent) {
+            frContent.style.display = 'none';
+            if (enContent) enContent.style.display = '';
+          } else if (lang === 'fr' && enContent) {
+            enContent.style.display = 'none';
+            if (frContent) frContent.style.display = '';
+          } else {
+            // Show both if no specific content containers
+            if (enContent) enContent.style.display = '';
+            if (frContent) frContent.style.display = '';
+          }
+        });
+      }
+      
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        setLanguage('en');
+        initVideoPlayer();
+      });
+      
+      // Video player initialization
+      function initVideoPlayer() {
+        const video = document.querySelector('video');
+        const placeholder = document.getElementById('video-placeholder');
+        const playOverlay = document.querySelector('.group .absolute.inset-0');
+        
+        if (video && placeholder) {
+          // Hide placeholder when video can play
+          video.addEventListener('loadeddata', function() {
+            placeholder.style.display = 'none';
+          });
+          
+          // Hide play overlay when video starts playing
+          video.addEventListener('play', function() {
+            if (playOverlay) {
+              playOverlay.style.display = 'none';
+            }
+          });
+          
+          // Show play overlay when video is paused or ends
+          video.addEventListener('pause', function() {
+            if (playOverlay) {
+              playOverlay.style.display = 'flex';
+            }
+          });
+          
+          video.addEventListener('ended', function() {
+            if (playOverlay) {
+              playOverlay.style.display = 'flex';
+            }
+          });
+          
+          // Handle loading errors
+          video.addEventListener('error', function() {
+            placeholder.innerHTML = `
+              <div class="text-center">
+                <div class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                  </svg>
+                </div>
+                <p class="text-gray-400 text-sm lang-en-content">Error loading video. Please try refreshing the page.</p>
+                <p class="text-gray-400 text-sm lang-fr-content hidden">Erreur de chargement de la vidéo. Veuillez actualiser la page.</p>
+              </div>
+            `;
+          });
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <!-- Skip to Content Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-ablegold text-black px-4 py-2 rounded-md font-medium z-50"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header
+      role="banner"
+      class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-yellow-500/20"
+    >
+      <div
+        class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <!-- Logo and Organization Name -->
+        <div class="flex items-center space-x-3">
+          <img
+            src="able_logo.png"
+            alt="Association of Black Law Enforcers (A.B.L.E.) Logo"
+            class="w-10 h-10 object-contain"
+          />
+          <div class="hidden sm:block">
+            <h1
+              class="text-gray-100 font-sans font-medium tracking-tight text-sm lg:text-base"
+            >
+              Association of Black Law Enforcers
+            </h1>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex items-center space-x-6">
+          <a
+            href="#hero"
+            class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
+          >
+            Event
+          </a>
+          <a
+            href="#tickets"
+            class="text-ablegold hover:text-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium font-semibold"
+          >
+            Tickets
+          </a>
+          <a
+            href="#details"
+            class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
+          >
+            Details
+          </a>
+          <a
+            href="#contact"
+            class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
+          >
+            Contact
+          </a>
+          <!-- Language Toggle -->
+          <div class="flex items-center space-x-2 text-sm">
+            <button
+              id="lang-en"
+              onclick="setLanguage('en')"
+              class="lang-toggle px-3 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold transition-colors text-ablegold font-medium"
+            >
+              EN
+            </button>
+            <span class="text-gray-600">|</span>
+            <button
+              id="lang-fr"
+              onclick="setLanguage('fr')"
+              class="lang-toggle px-3 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold transition-colors text-gray-400 hover:text-gray-300"
+            >
+              FR
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="relative pt-20 pb-24 sm:pt-28 sm:pb-32 bg-gradient-to-b from-black via-neutral-950 to-black"
+      >
+        <!-- Decorative gradient overlay -->
+        <div
+          class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.15),transparent_50%)]"
+        ></div>
+
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+          <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            <!-- Main Content -->
+            <div class="lg:col-span-7">
+              <!-- Save the Date -->
+              <div class="mb-6 lang-both">
+                <p
+                  class="lang-en-content text-amber-400 tracking-widest uppercase text-sm font-medium mb-1"
+                >
+                  Save the Date
+                </p>
+                <p
+                  class="lang-fr-content text-amber-400/80 tracking-wide uppercase text-xs font-medium"
+                >
+                  Réservez la date
+                </p>
+              </div>
+
+              <!-- Main Title -->
+              <h1
+                class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
+              >
+                2025 ABLE Gala
+              </h1>
+
+              <!-- Theme -->
+              <div class="mb-8 lang-both">
+                <p
+                  class="lang-en-content text-gray-300 text-lg sm:text-xl font-medium mb-2 max-w-2xl"
+                >
+                  Strength Through Struggle:<br />
+                  A Journey of Perseverance and Endurance
+                </p>
+                <p class="lang-fr-content text-gray-400 text-base italic max-w-2xl">
+                  La force par l'épreuve : un parcours de persévérance et
+                  d'endurance
+                </p>
+              </div>
+
+              <!-- Event Details -->
+              <div class="space-y-4 mb-10">
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mr-4"></div>
+                  <div class="lang-both">
+                    <p class="lang-en-content text-white font-medium">
+                      Saturday, November 1, 2025
+                    </p>
+                    <p class="lang-fr-content text-gray-400 text-sm">
+                      Samedi 1er novembre 2025
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mr-4"></div>
+                  <div class="lang-both">
+                    <p class="lang-en-content text-white font-medium">
+                      Automotive Building – Exhibition Place, Toronto
+                    </p>
+                    <p class="lang-fr-content text-gray-400 text-sm">
+                      Édifice Automotive – Exhibition Place, Toronto
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#tickets"
+                  class="inline-flex items-center justify-center px-6 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition-colors"
+                >
+                  Purchase Tickets
+                </a>
+                <a
+                  href="#contact"
+                  class="inline-flex items-center justify-center px-6 py-3 border border-ablegold/40 text-gray-100 font-semibold rounded-lg hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold transition-colors"
+                >
+                  Contact A.B.L.E.
+                </a>
+              </div>
+            </div>
+
+            <!-- ABLE Logo Feature -->
+            <div class="lg:col-span-5 mt-12 lg:mt-0">
+              <div class="relative flex flex-col items-center justify-center lg:items-end">
+                <!-- Large ABLE Logo with styling -->
+                <div class="relative mb-6">
+                  <!-- Subtle glow behind logo -->
+                  <div class="absolute inset-0 bg-ablegold/10 rounded-full blur-2xl transform scale-125"></div>
+                  <!-- Logo container with decorative border -->
+                  <div class="relative w-64 h-64 flex items-center justify-center rounded-full border border-ablegold/20 bg-gradient-to-br from-ablegold/5 to-transparent">
+                    <img
+                      src="able_logo.png"
+                      alt="Association of Black Law Enforcers (A.B.L.E.) Logo"
+                      class="w-48 h-48 object-contain drop-shadow-2xl"
+                    />
+                  </div>
+                  <!-- Additional subtle glow effect -->
+                  <div class="absolute inset-0 rounded-full bg-ablegold/5 blur-xl"></div>
+                </div>
+                
+                <!-- Date Display -->
+                <div class="text-center lg:text-right">
+                  <div class="text-ablegold font-display text-2xl sm:text-3xl font-bold tracking-wide mb-1">
+                    Nov 1, 2025
+                  </div>
+                  <div class="text-ablegold/70 text-sm uppercase tracking-widest font-medium">
+                    Save the Date
+                  </div>
+                  
+                  <!-- Subtle underline accent -->
+                  <div class="w-16 h-px bg-ablegold/40 mx-auto lg:mx-0 lg:ml-auto mt-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2024 Gala Recap Video Section -->
+      <section
+        id="2024-recap"
+        aria-label="2024 Awards Gala Recap"
+        class="py-16 sm:py-20 bg-neutral-950 border-t border-ablegold/15"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <div class="lang-both">
+              <div class="lang-en-content">
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                  Experience the Magic
+                </h2>
+                <h3 class="text-xl sm:text-2xl font-display text-ablegold mb-6">
+                  32nd A.B.L.E. Scholarship and Awards Gala Recap
+                </h3>
+                <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  Re-cap of an incredible night at the 32nd A.B.L.E Scholarship and Awards Gala! 🎉 Huge thanks to the Ontario Provincial Police and the OPP Association for co-hosting this unforgettable event. A special thank you to all our sponsors and supporters who made this possible! Congratulations to our 11 scholarship recipients and 9 award recipients for your amazing achievements! 🌟
+                </p>
+              </div>
+              <div class="lang-fr-content" style="display: none;">
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+                  Vivez la Magie
+                </h2>
+                <h3 class="text-xl sm:text-2xl font-display text-ablegold mb-6">
+                  Récapitulatif du 32e Gala des bourses et des prix A.B.L.E.
+                </h3>
+                <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  Récapitulatif d'une nuit incroyable au 32e Gala des bourses et des prix A.B.L.E ! 🎉 Un grand merci à la Police provinciale de l'Ontario et à l'Association de la Police provinciale de l'Ontario pour avoir co-organisé cet événement inoubliable. Un merci spécial à tous nos sponsors et soutiens qui ont rendu cela possible ! Félicitations à nos 11 récipiendaires de bourses et à nos 9 récipiendaires de prix pour vos réalisations exceptionnelles ! 🌟
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Container -->
+          <div class="relative max-w-4xl mx-auto group">
+            <div class="aspect-video bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-xl overflow-hidden shadow-2xl border border-ablegold/20 relative">
+              <video
+                controls
+                preload="metadata"
+                class="w-full h-full object-cover"
+                aria-label="2024 ABLE Awards Gala Recap Video"
+              >
+                <source src="re-cap_32nd_awards_gala.mp4" type="video/mp4">
+                <div class="lang-both">
+                  <div class="lang-en-content">
+                    <p class="text-gray-300 p-8 text-center">
+                      Your browser does not support the video tag. Please use a modern browser to view this content.
+                    </p>
+                  </div>
+                  <div class="lang-fr-content" style="display: none;">
+                    <p class="text-gray-300 p-8 text-center">
+                      Votre navigateur ne supporte pas la balise vidéo. Veuillez utiliser un navigateur moderne pour voir ce contenu.
+                    </p>
+                  </div>
+                </div>
+              </video>
+              
+              <!-- Custom Play Button Overlay -->
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:bg-black/10 transition-colors duration-300">
+                <div class="bg-black/60 backdrop-blur-sm rounded-full p-6 border border-ablegold/30 shadow-2xl transform group-hover:scale-110 transition-all duration-300 group-hover:bg-black/70">
+                  <!-- Play Icon SVG -->
+                  <svg class="w-12 h-12 text-ablegold ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- Video Loading State -->
+              <div class="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center" id="video-placeholder">
+                <div class="text-center">
+                  <div class="w-16 h-16 border-4 border-ablegold/20 border-t-ablegold rounded-full animate-spin mb-4"></div>
+                  <div class="lang-both">
+                    <p class="lang-en-content text-gray-400 text-sm">Loading video...</p>
+                    <p class="lang-fr-content text-gray-400 text-sm" style="display: none;">Chargement de la vidéo...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Video Overlay Badge -->
+            <div class="absolute -top-4 -right-4">
+              <div class="bg-ablegold text-black text-xs font-bold px-3 py-2 rounded-full shadow-lg">
+                <div class="lang-both">
+                  <span class="lang-en-content">2024 Highlights</span>
+                  <span class="lang-fr-content" style="display: none;">Moments forts 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Statistics -->
+          <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-ablegold mb-2">32nd</div>
+              <div class="lang-both">
+                <p class="lang-en-content text-gray-300 text-sm">Annual Gala</p>
+                <p class="lang-fr-content text-gray-300 text-sm" style="display: none;">Gala Annuel</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-ablegold mb-2">11</div>
+              <div class="lang-both">
+                <p class="lang-en-content text-gray-300 text-sm">Scholarship Recipients</p>
+                <p class="lang-fr-content text-gray-300 text-sm" style="display: none;">Récipiendaires de bourses</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-ablegold mb-2">9</div>
+              <div class="lang-both">
+                <p class="lang-en-content text-gray-300 text-sm">Award Recipients</p>
+                <p class="lang-fr-content text-gray-300 text-sm" style="display: none;">Récipiendaires de prix</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="mt-12 text-center">
+            <div class="lang-both">
+              <div class="lang-en-content">
+                <p class="text-gray-400 mb-6">
+                  Join us for the 2025 gala and be part of our continuing legacy of excellence.
+                </p>
+                <a
+                  href="#tickets"
+                  class="inline-block px-8 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition-all duration-200 transform hover:scale-105"
+                >
+                  Get Your 2025 Tickets
+                </a>
+              </div>
+              <div class="lang-fr-content" style="display: none;">
+                <p class="text-gray-400 mb-6">
+                  Rejoignez-nous pour le gala 2025 et faites partie de notre héritage continu d'excellence.
+                </p>
+                <a
+                  href="#tickets"
+                  class="inline-block px-8 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition-all duration-200 transform hover:scale-105"
+                >
+                  Obtenez vos billets 2025
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Hashtags -->
+          <div class="mt-8 text-center">
+            <div class="flex flex-wrap justify-center gap-2">
+              <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20">
+                #ablegala2024
+              </span>
+              <div class="lang-both">
+                <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20 lang-en-content">
+                  #CelebratingExcellence
+                </span>
+                <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20 lang-fr-content" style="display: none;">
+                  #CélébronsLExcellence
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative Divider -->
+          <div class="mt-12 flex justify-center">
+            <div
+              class="w-24 h-px bg-gradient-to-r from-transparent via-ablegold/40 to-transparent"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Event Details Section -->
+      <section
+        id="details"
+        aria-label="Event Information and Details"
+        class="py-16 sm:py-20 bg-black border-t border-ablegold/15"
+      >
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- English Column -->
+            <div lang="en">
+              <h2
+                class="text-2xl font-display font-bold text-white mb-6 border-b border-ablegold/20 pb-3"
+              >
+                About the Event
+              </h2>
+              <div class="space-y-4 text-gray-300 leading-relaxed">
+                <p>
+                  The Association of Black Law Enforcers (A.B.L.E.) invites you
+                  to an evening recognizing leadership, service, and excellence
+                  in our communities. Join colleagues, partners, and allies as
+                  we reflect on the theme,
+                  <em
+                    >"Strength Through Struggle: A Journey of Perseverance and
+                    Endurance."</em
+                  >
+                </p>
+                <p>
+                  Attire, program details, and ticketing information will be
+                  announced shortly.
+                </p>
+              </div>
+            </div>
+
+            <!-- French Column -->
+            <div lang="fr">
+              <h2
+                class="text-2xl font-display font-bold text-white mb-6 border-b border-ablegold/20 pb-3"
+              >
+                À propos de l'événement
+              </h2>
+              <div class="space-y-4 text-gray-300 leading-relaxed">
+                <p>
+                  L'Association des agents d'exécution de la loi noirs
+                  (A.B.L.E.) vous convie à une soirée visant à célébrer le
+                  leadership, le service et l'excellence au sein de nos
+                  communautés. Rejoignez collègues, partenaires et allié·e·s
+                  alors que nous réfléchissons au thème
+                  <em
+                    >« La force par l'épreuve : un parcours de persévérance et
+                    d'endurance »</em
+                  >.
+                </p>
+                <p>
+                  Les détails concernant la tenue vestimentaire, le programme et
+                  la billetterie seront communiqués sous peu.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative divider -->
+          <div class="mt-12 flex justify-center">
+            <div
+              class="w-24 h-px bg-gradient-to-r from-transparent via-ablegold/40 to-transparent"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tickets Section -->
+      <section
+        id="tickets"
+        aria-label="Ticket Information"
+        class="py-16 sm:py-20 bg-black border-t border-ablegold/15"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+              Get Your Tickets
+            </h2>
+            <h3 class="text-2xl sm:text-3xl font-display font-semibold text-gray-300 mb-6">
+              Obtenez vos billets
+            </h3>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+              Join us for an unforgettable evening celebrating leadership, service, and excellence.
+            </p>
+          </div>
+
+          <!-- Ticket Options -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Standard Ticket -->
+            <div class="bg-neutral-900 rounded-lg border border-ablegold/20 p-6">
+              <h4 class="text-xl font-display font-bold text-white mb-3 text-center">
+                Standard Admission
+              </h4>
+              <div class="text-3xl font-display font-bold text-ablegold mb-4 text-center">
+                $150
+              </div>
+              <div class="text-left space-y-3">
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Three-course plated dinner</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Full evening program and awards ceremony</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Open bar with wine and beer</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Networking opportunities</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Commemorative program booklet</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIP Ticket -->
+            <div class="bg-neutral-900 rounded-lg border-2 border-ablegold p-6 relative">
+              <!-- Popular Badge -->
+              <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span class="bg-ablegold text-black text-xs font-bold px-3 py-1 rounded-full">
+                  POPULAR
+                </span>
+              </div>
+              <h4 class="text-xl font-display font-bold text-white mb-3 text-center">
+                VIP Experience
+              </h4>
+              <div class="text-3xl font-display font-bold text-ablegold mb-4 text-center">
+                $250
+              </div>
+              <div class="text-left space-y-3">
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">All Standard Admission benefits</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Premium reserved seating (front tables)</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Exclusive VIP cocktail reception (6:00 PM)</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Meet and greet with keynote speakers</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Premium gift bag and commemorative item</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Table Sponsor -->
+            <div class="bg-neutral-900 rounded-lg border border-ablegold/20 p-6">
+              <h4 class="text-xl font-display font-bold text-white mb-3 text-center">
+                Table Sponsorship
+              </h4>
+              <div class="text-3xl font-display font-bold text-ablegold mb-4 text-center">
+                $1,500
+              </div>
+              <div class="text-left space-y-3">
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Reserved table for 8 guests</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Premium placement near the stage</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Company/organization recognition in program</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Logo display on event materials</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">VIP reception access for table host</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-2 h-2 bg-ablegold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <p class="text-gray-300 text-sm">Tax-deductible sponsorship benefits</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Purchase CTA -->
+          <div class="text-center">
+            <div class="mb-6">
+              <a
+                href="#purchase"
+                class="inline-block px-12 py-4 bg-ablegold text-black font-bold text-lg uppercase tracking-wide rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Click Here to Purchase Your Tickets
+              </a>
+            </div>
+            <p class="text-gray-500 text-sm">
+              Secure online ticketing powered by Eventbrite<br>
+              Questions? Contact us at <a href="mailto:tickets@ableorg.ca" class="text-ablegold hover:text-amber-400">tickets@ableorg.ca</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact/CTA Section -->
+      <section
+        id="contact"
+        aria-label="Contact and registration"
+        class="py-16 sm:py-20 bg-black border-t border-ablegold/15"
+      >
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <!-- Headlines -->
+          <div class="mb-10">
+            <h2
+              class="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
+            >
+              More Details to Follow
+            </h2>
+            <h3
+              class="text-2xl sm:text-3xl font-display font-semibold text-gray-300 mb-6"
+            >
+              Plus de détails à venir
+            </h3>
+
+            <div class="max-w-2xl mx-auto space-y-3">
+              <p class="text-gray-300 text-lg">
+                Register your interest to receive updates as they are announced.
+              </p>
+              <p class="text-gray-400">
+                Inscrivez votre intérêt pour recevoir les mises à jour dès leur
+                publication.
+              </p>
+            </div>
+          </div>
+
+          <!-- Email Capture Form (Placeholder) -->
+          <div class="mb-10">
+            <div class="max-w-md mx-auto">
+              <div class="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Enter your email / Entrez votre courriel"
+                  disabled
+                  class="flex-1 px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold disabled:opacity-50"
+                  aria-label="Email address for updates"
+                />
+                <button
+                  disabled
+                  class="px-6 py-3 bg-neutral-700 text-gray-400 font-semibold rounded-lg cursor-not-allowed"
+                >
+                  Coming Soon
+                </button>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">
+                Email registration will be available soon / L'inscription par
+                courriel sera bientôt disponible
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact Links -->
+          <div class="mb-12">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="mailto:info@ableorg.ca"
+                class="inline-flex items-center justify-center px-6 py-3 border border-ablegold/40 text-gray-100 font-semibold rounded-lg hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold transition-colors"
+              >
+                Contact A.B.L.E.
+              </a>
+              <a
+                href="mailto:info@ableorg.ca"
+                class="inline-flex items-center justify-center px-6 py-3 border border-ablegold/40 text-gray-100 font-semibold rounded-lg hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold transition-colors"
+              >
+                Contacter A.B.L.E.
+              </a>
+            </div>
+          </div>
+
+          <!-- Hashtags -->
+          <div class="space-y-4">
+            <p class="text-gray-400 text-sm uppercase tracking-wider">
+              Share the Event / Partagez l'événement
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <span
+                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
+              >
+                #ABLEGala2025
+              </span>
+              <span
+                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
+              >
+                #Unity
+              </span>
+              <span
+                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
+              >
+                #Strength
+              </span>
+              <span
+                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
+              >
+                #Excellence
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      role="contentinfo"
+      class="bg-neutral-950 border-t border-ablegold/15"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Organization Identity -->
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <img
+                src="able_logo.png"
+                alt="A.B.L.E. Logo"
+                class="w-8 h-8 object-contain"
+              />
+              <h3 class="text-gray-200 font-semibold">A.B.L.E.</h3>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-2">
+              Association of Black Law Enforcers
+            </p>
+            <p class="text-gray-500 text-xs">
+              Advancing unity, strength, and excellence in law enforcement.
+            </p>
+          </div>
+
+          <!-- Event Info -->
+          <div>
+            <h4 class="text-gray-200 font-semibold mb-4">2025 Gala</h4>
+            <div class="text-gray-400 text-sm space-y-2">
+              <p>Saturday, November 1, 2025</p>
+              <p>Automotive Building</p>
+              <p>Exhibition Place, Toronto</p>
+            </div>
+          </div>
+
+          <!-- Legal & Utility -->
+          <div>
+            <div class="text-gray-500 text-xs space-y-2">
+              <p>© 2025 Association of Black Law Enforcers (A.B.L.E.)</p>
+              <p>All rights reserved.</p>
+              <p class="pt-2">
+                This site supports English and French<br />
+                Ce site supporte l'anglais et le français
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
