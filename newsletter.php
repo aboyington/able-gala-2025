@@ -12,7 +12,6 @@ if ($honeypot !== '') {
   exit;
 }
 
-$name  = isset($_POST['name']) ? trim($_POST['name']) : '';
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   http_response_code(400);
@@ -24,7 +23,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 // If not available, this will fall back to mail().
 $to = 'corporate.communications.able@gmail.com';
 $subject = 'ABLE 2025 Gala Newsletter Signup';
-$body = "New newsletter signup\n\nName: {$name}\nEmail: {$email}";
+$body = "New newsletter signup\n\nEmail: {$email}";
 
 $sent = false;
 
