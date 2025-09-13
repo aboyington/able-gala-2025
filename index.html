@@ -122,6 +122,7 @@
       document.addEventListener('DOMContentLoaded', function () {
         setLanguage('en');
         initVideoPlayer();
+        initScrollSpy();
 
         // Mobile menu toggle with animation and auto-close
         const btn = document.getElementById('mobile-menu-button');
@@ -207,6 +208,37 @@
           });
         }
       }
+
+      // Scroll spy to set active nav based on section in view
+      function initScrollSpy() {
+        const sections = ['hero','details','applications','contact'];
+        const linkMap = new Map();
+        sections.forEach(id => {
+          linkMap.set(id, Array.from(document.querySelectorAll(`[data-nav="${id}"]`)));
+        });
+        function setActive(id) {
+          sections.forEach(sid => {
+            (linkMap.get(sid) || []).forEach(a => {
+              a.classList.remove('text-ablegold','font-semibold');
+              a.removeAttribute('aria-current');
+            });
+          });
+          (linkMap.get(id) || []).forEach(a => {
+            a.classList.add('text-ablegold','font-semibold');
+            a.setAttribute('aria-current','location');
+          });
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        }, { root: null, threshold: 0.6 });
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) observer.observe(el);
+        });
+        setActive('hero');
+      }
     </script>
   </head>
   <body class="bg-black text-gray-100 antialiased">
@@ -246,30 +278,34 @@
         <nav class="hidden sm:flex items-center space-x-3 sm:space-x-6">
           <a
             href="#hero"
+            data-nav="hero"
             class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
           >
             Event
           </a>
           <a
             href="tickets.html#id=112&display=list&cid=1852&wid=801"
-            class="text-ablegold hover:text-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium font-semibold"
+            class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
           >
             Tickets
           </a>
           <a
             href="#details"
+            data-nav="details"
             class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
           >
             Details
           </a>
           <a
             href="#applications"
+            data-nav="applications"
             class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
           >
             Applications
           </a>
           <a
             href="#contact"
+            data-nav="contact"
             class="text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded px-2 py-1 text-sm font-medium"
           >
             Contact
@@ -313,11 +349,11 @@
         class="sm:hidden absolute top-16 inset-x-0 z-50 bg-black/95 border-t border-ablegold/20 transition-all duration-200 ease-out opacity-0 -translate-y-2 pointer-events-none max-h-0 overflow-hidden"
       >
         <div class="px-4 py-4 space-y-2">
-          <a href="#hero" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Event</a>
-          <a href="tickets.html#id=112&display=list&cid=1852&wid=801" class="block px-3 py-2 rounded-md text-ablegold hover:bg-neutral-900">Tickets</a>
-          <a href="#details" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Details</a>
-          <a href="#applications" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Applications</a>
-          <a href="#contact" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Contact</a>
+          <a href="#hero" data-nav="hero" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Event</a>
+          <a href="tickets.html#id=112&display=list&cid=1852&wid=801" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Tickets</a>
+          <a href="#details" data-nav="details" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Details</a>
+          <a href="#applications" data-nav="applications" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Applications</a>
+          <a href="#contact" data-nav="contact" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Contact</a>
           <div class="mt-3 flex items-center gap-2">
             <button id="lang-en-mobile" onclick="setLanguage('en')" class="px-3 py-1 rounded text-sm bg-neutral-900 text-ablegold">EN</button>
             <button id="lang-fr-mobile" onclick="setLanguage('fr')" class="px-3 py-1 rounded text-sm bg-neutral-900 text-gray-300 hover:text-white">FR</button>
@@ -413,7 +449,7 @@
               <!-- CTA Buttons -->
               <div class="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://beeid.org/f81b22a8b08b"
+                  href="tickets.html#id=112&display=list&cid=1852&wid=801"
                   target="_blank" rel="noopener noreferrer"
                   class="inline-flex items-center justify-center px-6 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition-colors"
                 >
@@ -704,7 +740,7 @@
               <span
                 class="px-3 py-1 bg-ablegold/10 text-ablegold text-xs rounded-full border border-ablegold/20"
               >
-                #ablegala2024
+                #ablegala2025
               </span>
               <div class="lang-both">
                 <span
