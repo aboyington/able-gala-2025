@@ -219,12 +219,14 @@
         function setActive(id) {
           sections.forEach(sid => {
             (linkMap.get(sid) || []).forEach(a => {
-              a.classList.remove('text-ablegold','font-semibold');
+              a.classList.remove('text-ablegold','font-semibold','hover:text-amber-400');
+              a.classList.add('hover:text-white');
               a.removeAttribute('aria-current');
             });
           });
           (linkMap.get(id) || []).forEach(a => {
-            a.classList.add('text-ablegold','font-semibold');
+            a.classList.add('text-ablegold','font-semibold','hover:text-amber-400');
+            a.classList.remove('hover:text-white');
             a.setAttribute('aria-current','location');
           });
         }
