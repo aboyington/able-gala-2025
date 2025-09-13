@@ -176,15 +176,15 @@ The project uses:
 
 ## 📞 Contact Integration
 
-### Placeholder Contacts
+### Newsletter Signup
+- Location: Contact/Newsletter section on index
+- Backend: `newsletter.php` (PHP mail or PHPMailer)
+- CSV backup: `storage/newsletter.csv`
+- Optional reCAPTCHA v3 support (configure keys)
+
+### Contacts
 - General: `info@ableorg.ca`
 - Tickets: `tickets@ableorg.ca`
-
-### Email Form
-Currently disabled with "Coming Soon" messaging. Ready for:
-- Mailchimp integration
-- Custom form handler
-- Newsletter service integration
 
 ## 🎯 Performance & SEO
 
