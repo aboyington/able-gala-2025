@@ -96,7 +96,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
           <div class="bg-neutral-900 border border-ablegold/20 rounded-lg p-2">
             <!-- Loading / fallback message while the script loads -->
-            <div id="membee-loading" class="p-6 text-center text-gray-300">
+<div id="membee-loading" class="p-6 text-center text-gray-300 hidden">
               <div class="w-16 h-16 border-4 border-ablegold/20 border-t-ablegold rounded-full animate-spin mb-4 mx-auto"></div>
               <div class="lang-both">
                 <p class="lang-en-content">Loading ticket form...</p>
@@ -105,7 +105,10 @@
             </div>
 
             <!-- Membee embedded script (provided by client) -->
-            <div id="membee-container" class="membee-container"></div>
+            <div id="membee-container" class="membee-container">
+              <script src="https://memberservices.membee.com/feeds/Events/EventScript.ashx?cid=1852&wid=801" type="text/javascript"></script>
+              <a style='visibility: hidden;' href='https://memberservices.membee.com/feeds/Events/Event.aspx?cid=1852&wid=801'></a>
+            </div>
 
             <noscript>
               <div class="p-6 text-center text-gray-300">
@@ -132,29 +135,16 @@
     </footer>
 
     <script>
-      // Ensure Membee loads the specific event view by default by setting a hash
-      (function initMembee() {
-        var DEFAULT_HASH = '#id=112&display=list&cid=1852&wid=801';
-        if (!window.location.hash || window.location.hash.indexOf('id=') === -1) {
-          window.location.hash = DEFAULT_HASH;
-        }
-        // Inject the Membee script after the hash is set so it picks up parameters
-        var container = document.getElementById('membee-container');
-        if (container) {
-          var s = document.createElement('script');
-          s.type = 'text/javascript';
-          s.src = 'https://memberservices.membee.com/feeds/Events/EventScript.ashx?cid=1852&wid=801';
-          container.appendChild(s);
-        }
-      })();
-
       // Hide loading after Membee injects content (simple heuristic)
-      window.addEventListener('load', function () {
+      window.addEventListener('DOMContentLoaded', function () {
         const loader = document.getElementById('membee-loading');
         // Give Membee script a short time to render
         setTimeout(() => {
-          if (loader) loader.style.display = 'none';
-        }, 1200);
+          // If Membee hasn't rendered yet, show the loader as a fallback
+          const membeeContainer = document.getElementById('membee-container');
+          const hasMembeeContent = membeeContainer && membeeContainer.querySelector('*');
+          if (!hasMembeeContent && loader) loader.classList.remove('hidden');
+        }, 800);
       });
     </script>
   </body>
