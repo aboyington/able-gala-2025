@@ -2,6 +2,13 @@
 
 ## Project Overview
 
+Updated 2025-09-13
+- Newsletter submits via fetch without navigation; onsubmit guard prevents accidental redirects if JS fails
+- Scroll‑spy active nav highlighting implemented (hero, details, applications, contact)
+- Production bundle path: /Users/anthony/Sites/ableorg.ca-production (ready-to-upload)
+- Live OG/Twitter URLs point to https://ableorg.ca/gala2025
+- Tickets links use the official Membee deep link
+
 This is a professional landing page for The Association of Black Law Enforcers (A.B.L.E.) 2025 Annual Gala, featuring a bilingual (English/French) design with integrated ticket sales functionality.
 
 **Event Details:**
@@ -28,10 +35,9 @@ This is a professional landing page for The Association of Black Law Enforcers (
 5. **Contact** - Placeholder forms and contact information
 6. **Footer** - Organization info and legal details
 
-### Ticket Tiers
-- **Standard Admission** - $150 (dinner, program, networking)
-- **VIP Experience** - $250 (premium seating, cocktail reception, exclusive access)
-- **Table Sponsorship** - $1,500 (table for 8, branding, recognition)
+### Tickets
+- All public CTAs point to Membee deep link: tickets.html#id=112&display=list&cid=1852&wid=801
+- Pricing/tiers are managed within Membee; remove this section if not needed in the static site
 
 ## 🛠 Technical Stack
 
@@ -117,26 +123,10 @@ function setLanguage(lang) {
 - English content marked with `lang-en-content` class
 - Both languages shown by default, hidden based on selection
 
-## 🎫 Ticket Integration
+### Ticket Integration
 
-### Current Setup
-All ticket purchase links point to `#purchase` placeholder. Ready for integration with:
-
-- **Eventbrite** - Replace href with Eventbrite event URL
-- **Custom Ticketing** - Replace with organization's ticketing system
-- **Payment Processors** - Stripe, PayPal, etc.
-
-### Integration Points
-```html
-<!-- Main CTA -->
-<a href="#purchase">Click Here to Purchase Your Tickets</a>
-
-<!-- Hero CTA -->
-<a href="#tickets">Purchase Tickets</a>
-
-<!-- Navigation -->
-<a href="#tickets">Tickets</a>
-```
+- Membee deep link integrated throughout: `tickets.html#id=112&display=list&cid=1852&wid=801`
+- To change the destination, update the hrefs in index.html and any secondary pages.
 
 ## 🚀 Local Development
 
@@ -157,12 +147,13 @@ The project uses:
 
 ## ✅ Ready for Production
 
+### Production Bundle
+- Path: `/Users/anthony/Sites/ableorg.ca-production`
+- Contents: index.html, tickets.html, awards.html, scholarship.html, newsletter.php, robots.txt, sitemap.xml, assets/, media
+
 ### Pre-Launch Checklist
-- [ ] Replace placeholder contact email (`info@ableorg.ca`)
-- [ ] Update ticket purchase links with real URLs
-- [ ] Add real social media links
-- [ ] Configure domain and hosting
-- [ ] Add Google Analytics/tracking
+- [ ] Verify Open Graph/Twitter image URLs point to `https://ableorg.ca/gala2025/assets/og-image.svg`
+- [ ] Add analytics (optional)
 - [ ] Test cross-browser compatibility
 - [ ] Optimize images for web
 
@@ -178,9 +169,10 @@ The project uses:
 
 ### Newsletter Signup
 - Location: Contact/Newsletter section on index
-- Backend: `newsletter.php` (PHP mail or PHPMailer)
-- CSV backup: `storage/newsletter.csv`
-- Optional reCAPTCHA v3 support (configure keys)
+- Frontend: JavaScript fetch POST prevents navigation; form has `onsubmit="return false"` as a guard
+- Backend: `newsletter.php` (PHPMailer if available, else PHP `mail()`)
+- CSV backup: `storage/newsletter.csv` (auto-created)
+- Optional reCAPTCHA v3 support (server env `RECAPTCHA_SECRET`, client `window.RECAPTCHA_SITE_KEY`)
 
 ### Contacts
 - General: `info@ableorg.ca`

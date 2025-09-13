@@ -14,6 +14,12 @@
 
 ## Current Status
 
+Updated 2025-09-13
+- Newsletter submit handler attaches on DOMContentLoaded and prevents page navigation; form has a non-JS guard (onsubmit="return false")
+- Scroll‑spy active navigation implemented
+- Production bundle synced to `/Users/anthony/Sites/ableorg.ca-production`
+- OG/Twitter meta and JSON-LD use live `https://ableorg.ca/gala2025` URLs
+
 ### ✅ Completed Features
 - Responsive design (mobile-first)
 - ABLE logo integration in header and hero
@@ -41,10 +47,10 @@ Currently all point to `#purchase`. Replace with:
 Find and replace: `href="#purchase"` and `href="#tickets"`
 
 #### 3. Email Signup Form
-Currently disabled ("Coming Soon"). Options:
-- Mailchimp integration
-- Constant Contact
-- Custom form handler
+Implemented with progressive enhancement:
+- Frontend: fetch POST + live email validation; prevents navigation
+- Backend: `newsletter.php` with PHPMailer/mail fallback, CSV backup
+- Optional: reCAPTCHA v3 (server env `RECAPTCHA_SECRET`, client `window.RECAPTCHA_SITE_KEY`)
 
 #### 4. Social Media
 Update hashtags and add social links if desired
@@ -114,25 +120,22 @@ Most content can be updated by editing `index.html`:
 - Various mobile devices
 - Older browser versions if needed
 
-## Hosting Migration
+### Hosting Migration
 
 ### Current Setup
 - Local MAMP server
 - Port 80
-- Static files only
+- Static files + PHP handler for newsletter
 
-### Production Requirements
-- Static hosting (Netlify, Vercel, etc.)
-- or Traditional web hosting
-- SSL certificate recommended
-- Domain configuration
+### Production Bundle
+- `/Users/anthony/Sites/ableorg.ca-production` (ready to upload folder)
 
 ### Migration Steps
-1. Upload all files to web host
-2. Configure domain DNS
-3. Test all functionality
-4. Update any absolute URLs
-5. Set up redirects if needed
+1. Upload contents of `ableorg.ca-production/` to your host’s `gala2025` path
+2. Verify OG/Twitter images and JSON-LD resolve at the live domain
+3. Test newsletter (no navigation to newsletter.php; JSON response handled by JS)
+4. If using reCAPTCHA, set `RECAPTCHA_SECRET` on server and add `window.RECAPTCHA_SITE_KEY` in index.html
+5. Configure SMTP if using PHPMailer for higher reliability (optional)
 
 ## Future Enhancements
 
