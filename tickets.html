@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABLE Gala 2025 – Purchase Tickets</title>
+    <meta name="description" content="Purchase tickets for the 2025 A.B.L.E. Scholarship and Awards Gala via our secure embedded Membee checkout." />
+
+    <link rel="icon" type="image/png" href="able_logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { ablegold: '#D4AF37', abledark: '#0B0F19' },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              display: ['Playfair Display', 'ui-serif', 'Georgia'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <script>
+      // Simple language toggle to match site behavior
+      let currentLanguage = 'en';
+      function setLanguage(lang) {
+        currentLanguage = lang;
+        document.querySelectorAll('.lang-toggle').forEach((btn) => {
+          btn.classList.remove('text-ablegold', 'font-medium');
+          btn.classList.add('text-gray-400', 'hover:text-gray-300');
+        });
+        const activeBtn = document.getElementById(`lang-${lang}`);
+        if (activeBtn) {
+          activeBtn.classList.remove('text-gray-400', 'hover:text-gray-300');
+          activeBtn.classList.add('text-ablegold', 'font-medium');
+        }
+        document.querySelectorAll('.lang-both').forEach((el) => {
+          const enContent = el.querySelector('.lang-en-content');
+          const frContent = el.querySelector('.lang-fr-content');
+          if (lang === 'en' && frContent) {
+            frContent.style.display = 'none';
+            if (enContent) enContent.style.display = '';
+          } else if (lang === 'fr' && enContent) {
+            enContent.style.display = 'none';
+            if (frContent) frContent.style.display = '';
+          }
+        });
+      }
+      document.addEventListener('DOMContentLoaded', () => setLanguage('en'));
+    </script>
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 backdrop-blur bg-black/80 border-b border-ablegold/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <a href="./" class="flex items-center space-x-3">
+          <img src="able_logo.png" alt="A.B.L.E. Logo" class="w-8 h-8" />
+          <span class="hidden sm:block text-sm text-gray-200">A.B.L.E. 2025</span>
+        </a>
+        <nav class="flex items-center space-x-2 text-sm">
+          <button id="lang-en" onclick="setLanguage('en')" class="lang-toggle px-3 py-1 text-ablegold font-medium">EN</button>
+          <span class="text-gray-600">|</span>
+          <button id="lang-fr" onclick="setLanguage('fr')" class="lang-toggle px-3 py-1 text-gray-400 hover:text-gray-300">FR</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="min-h-screen">
+      <section class="pt-10 pb-6 bg-neutral-950 relative">
+        <!-- subtle glow -->
+        <div aria-hidden="true" class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.10),transparent_60%)]"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div class="lang-both">
+            <div class="lang-en-content">
+              <h1 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">Purchase Tickets</h1>
+              <p class="text-gray-300">Secure checkout powered by Membee, embedded on this page.</p>
+            </div>
+            <div class="lang-fr-content" style="display: none;">
+              <h1 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">Acheter des billets</h1>
+              <p class="text-gray-300">Paiement sécurisé fourni par Membee, intégré sur cette page.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <div class="bg-neutral-900 border border-ablegold/20 rounded-lg p-2">
+            <!-- Loading / fallback message while the script loads -->
+            <div id="membee-loading" class="p-6 text-center text-gray-300">
+              <div class="w-16 h-16 border-4 border-ablegold/20 border-t-ablegold rounded-full animate-spin mb-4 mx-auto"></div>
+              <div class="lang-both">
+                <p class="lang-en-content">Loading ticket form...</p>
+                <p class="lang-fr-content" style="display: none;">Chargement du formulaire de billets...</p>
+              </div>
+            </div>
+
+            <!-- Membee embedded script (provided by client) -->
+            <div id="membee-container" class="membee-container">
+              <script src="https://memberservices.membee.com/feeds/Events/EventScript.ashx?cid=1852&wid=801" type="text/javascript"></script>
+              <a style='visibility: hidden;' href='https://memberservices.membee.com/feeds/Events/Event.aspx?cid=1852&wid=801'></a>
+            </div>
+
+            <noscript>
+              <div class="p-6 text-center text-gray-300">
+                JavaScript is required to load the ticket form. You can open it directly here:
+                <a href="https://beeid.org/f81b22a8b08b" target="_blank" rel="noopener" class="text-ablegold underline">Open Ticketing</a>
+              </div>
+            </noscript>
+          </div>
+
+          <div class="mt-6 text-center text-sm text-gray-400">
+            <div class="lang-both">
+              <p class="lang-en-content">Having trouble? <a href="https://beeid.org/f81b22a8b08b" target="_blank" rel="noopener" class="text-ablegold hover:text-amber-400">Open Membee checkout in a new tab</a>.</p>
+              <p class="lang-fr-content" style="display: none;">Un problème ? <a href="https://beeid.org/f81b22a8b08b" target="_blank" rel="noopener" class="text-ablegold hover:text-amber-400">Ouvrez la page Membee dans un nouvel onglet</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-neutral-950 border-t border-ablegold/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 text-center text-xs text-gray-500">
+        © 2025 Association of Black Law Enforcers (A.B.L.E.)
+      </div>
+    </footer>
+
+    <script>
+      // Hide loading after Membee injects content (simple heuristic)
+      window.addEventListener('load', function () {
+        const loader = document.getElementById('membee-loading');
+        // Give Membee script a short time to render
+        setTimeout(() => {
+          if (loader) loader.style.display = 'none';
+        }, 1200);
+      });
+    </script>
+  </body>
+</html>
