@@ -252,33 +252,6 @@
         }
       }
 
-      // Countdown to event
-      (function initCountdown(){
-        const target = new Date('2025-11-01T18:00:00-04:00'); // 6:00 PM ET
-        const els = {
-          d: document.getElementById('cd-days'),
-          h: document.getElementById('cd-hours'),
-          m: document.getElementById('cd-mins'),
-          s: document.getElementById('cd-secs'),
-        };
-        if (!els.d) return;
-        function pad(n){ return String(n).padStart(2,'0'); }
-        function tick(){
-          const now = new Date();
-          let diff = Math.max(0, target - now);
-          const days = Math.floor(diff / (1000*60*60*24)); diff -= days*24*60*60*1000;
-          const hours = Math.floor(diff / (1000*60*60)); diff -= hours*60*60*1000;
-          const mins = Math.floor(diff / (1000*60)); diff -= mins*60*1000;
-          const secs = Math.floor(diff / 1000);
-          els.d.textContent = days;
-          els.h.textContent = pad(hours);
-          els.m.textContent = pad(mins);
-          els.s.textContent = pad(secs);
-        }
-        tick();
-        setInterval(tick, 1000);
-      })();
-
       // Scroll spy to set active nav based on section in view
       function initScrollSpy() {
         const sections = ['hero','details','applications','contact'];
@@ -521,8 +494,7 @@
               <!-- CTA Buttons -->
               <div class="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tickets.html#id=112&display=list&cid=1852&wid=801"
-                  target="_blank" rel="noopener noreferrer"
+                  href="tickets.html"
                   class="inline-flex items-center justify-center px-6 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition-colors"
                 >
                   Purchase Tickets
@@ -533,28 +505,6 @@
                 >
                   Contact A.B.L.E.
                 </a>
-              </div>
-
-              <!-- Countdown -->
-              <div class="mt-8">
-                <div class="flex gap-3" id="countdown" aria-label="Countdown to event">
-                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
-                    <div class="text-2xl font-display text-ablegold" id="cd-days">--</div>
-                    <div class="text-xs uppercase tracking-wider text-gray-400">Days</div>
-                  </div>
-                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
-                    <div class="text-2xl font-display text-ablegold" id="cd-hours">--</div>
-                    <div class="text-xs uppercase tracking-wider text-gray-400">Hours</div>
-                  </div>
-                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
-                    <div class="text-2xl font-display text-ablegold" id="cd-mins">--</div>
-                    <div class="text-xs uppercase tracking-wider text-gray-400">Minutes</div>
-                  </div>
-                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
-                    <div class="text-2xl font-display text-ablegold" id="cd-secs">--</div>
-                    <div class="text-xs uppercase tracking-wider text-gray-400">Seconds</div>
-                  </div>
-                </div>
               </div>
             </div>
 
