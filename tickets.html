@@ -105,10 +105,7 @@
             </div>
 
             <!-- Membee embedded script (provided by client) -->
-            <div id="membee-container" class="membee-container">
-              <script src="https://memberservices.membee.com/feeds/Events/EventScript.ashx?cid=1852&wid=801" type="text/javascript"></script>
-              <a style='visibility: hidden;' href='https://memberservices.membee.com/feeds/Events/Event.aspx?cid=1852&wid=801'></a>
-            </div>
+            <div id="membee-container" class="membee-container"></div>
 
             <noscript>
               <div class="p-6 text-center text-gray-300">
@@ -135,6 +132,22 @@
     </footer>
 
     <script>
+      // Ensure Membee loads the specific event view by default by setting a hash
+      (function initMembee() {
+        var DEFAULT_HASH = '#id=112&display=list&cid=1852&wid=801';
+        if (!window.location.hash || window.location.hash.indexOf('id=') === -1) {
+          window.location.hash = DEFAULT_HASH;
+        }
+        // Inject the Membee script after the hash is set so it picks up parameters
+        var container = document.getElementById('membee-container');
+        if (container) {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.src = 'https://memberservices.membee.com/feeds/Events/EventScript.ashx?cid=1852&wid=801';
+          container.appendChild(s);
+        }
+      })();
+
       // Hide loading after Membee injects content (simple heuristic)
       window.addEventListener('load', function () {
         const loader = document.getElementById('membee-loading');
