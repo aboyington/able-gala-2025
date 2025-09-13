@@ -252,6 +252,30 @@
         }
       }
 
+      // Newsletter form submit
+      (function initNewsletter(){
+        const form = document.getElementById('newsletter-form');
+        const status = document.getElementById('newsletter-status');
+        if (!form) return;
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          status.textContent = 'Submitting...';
+          try {
+            const formData = new FormData(form);
+            const res = await fetch(form.action, { method: 'POST', body: formData });
+            const data = await res.json().catch(()=>({ ok:false }));
+            if (res.ok && data.ok) {
+              status.textContent = 'Thank you! You\'re subscribed.';
+              form.reset();
+            } else {
+              status.textContent = (data && data.error) ? `Error: ${data.error}` : 'Sorry, something went wrong.';
+            }
+          } catch (err) {
+            status.textContent = 'Network error. Please try again later.';
+          }
+        });
+      })();
+
       // Scroll spy to set active nav based on section in view
       function initScrollSpy() {
         const sections = ['hero','details','applications','contact'];
@@ -970,64 +994,47 @@
         </div>
       </section>
 
-      <!-- Contact/CTA Section -->
+      <!-- Newsletter Section -->
       <section
         id="contact"
-        aria-label="Contact and registration"
+        aria-label="Newsletter signup and contact"
         class="py-16 sm:py-20 bg-black border-t border-ablegold/15"
       >
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <!-- Headlines -->
-          <div class="mb-10">
-            <h2
-              class="text-3xl sm:text-4xl font-display font-bold text-white mb-4"
-            >
-              More Details to Follow
-            </h2>
-            <h3
-              class="text-2xl sm:text-3xl font-display font-semibold text-gray-300 mb-6"
-            >
-              Plus de détails à venir
-            </h3>
-
-            <div class="max-w-2xl mx-auto space-y-3">
-              <p class="text-gray-300 text-lg">
-                Register your interest to receive updates as they are announced.
-              </p>
-              <p class="text-gray-400">
-                Inscrivez votre intérêt pour recevoir les mises à jour dès leur
-                publication.
-              </p>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <div class="text-center mb-8 lang-both">
+            <div class="lang-en-content">
+              <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-2">Stay Informed</h2>
+              <p class="text-gray-300">Sign up for A.B.L.E. 2025 Gala updates, news, and announcements.</p>
+            </div>
+            <div class="lang-fr-content" style="display:none;">
+              <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-2">Restez informé</h2>
+              <p class="text-gray-300">Inscrivez-vous pour recevoir les mises à jour, nouvelles et annonces du Gala A.B.L.E. 2025.</p>
             </div>
           </div>
 
-          <!-- Email Capture Form (Placeholder) -->
-          <div class="mb-10">
-            <div class="max-w-md mx-auto">
-              <div class="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email / Entrez votre courriel"
-                  disabled
-                  class="flex-1 px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold disabled:opacity-50"
-                  aria-label="Email address for updates"
-                />
-                <button
-                  disabled
-                  class="px-6 py-3 bg-neutral-700 text-gray-400 font-semibold rounded-lg cursor-not-allowed"
-                >
-                  Coming Soon
-                </button>
+          <!-- Newsletter form -->
+          <form id="newsletter-form" class="max-w-xl mx-auto" method="post" action="newsletter.php" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="sm:col-span-1">
+                <label for="name" class="sr-only">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Name / Nom" class="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold" />
               </div>
-              <p class="text-xs text-gray-500 mt-2">
-                Email registration will be available soon / L'inscription par
-                courriel sera bientôt disponible
-              </p>
+              <div class="sm:col-span-2">
+                <label for="email" class="sr-only">Email</label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="Email / Courriel" class="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold" />
+              </div>
             </div>
-          </div>
+            <!-- Honeypot field -->
+            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+            <div class="mt-4 flex items-center gap-3">
+              <button type="submit" class="px-6 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">Subscribe</button>
+              <p id="newsletter-status" class="text-sm text-gray-400" role="status" aria-live="polite"></p>
+            </div>
+            <p class="mt-2 text-xs text-gray-500">We respect your privacy. You can unsubscribe at any time.</p>
+          </form>
 
           <!-- Contact Links -->
-          <div class="mb-12">
+          <div class="mt-12 text-center">
             <div class="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="mailto:info@ableorg.ca"
@@ -1045,31 +1052,15 @@
           </div>
 
           <!-- Hashtags -->
-          <div class="space-y-4">
+          <div class="mt-12 space-y-4 text-center">
             <p class="text-gray-400 text-sm uppercase tracking-wider">
               Share the Event / Partagez l'événement
             </p>
             <div class="flex flex-wrap justify-center gap-3">
-              <span
-                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
-              >
-                #ABLEGala2025
-              </span>
-              <span
-                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
-              >
-                #Unity
-              </span>
-              <span
-                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
-              >
-                #Strength
-              </span>
-              <span
-                class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20"
-              >
-                #Excellence
-              </span>
+              <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20">#ABLEGala2025</span>
+              <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20">#Unity</span>
+              <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20">#Strength</span>
+              <span class="px-3 py-1 bg-ablegold/10 text-ablegold text-sm rounded-full border border-ablegold/20">#Excellence</span>
             </div>
           </div>
         </div>
