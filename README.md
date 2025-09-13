@@ -21,10 +21,10 @@ This is a professional landing page for The Association of Black Law Enforcers (
 - ✅ **Accessibility** - WCAG compliant with proper focus states and alt text
 
 ### Page Sections
-1. **Header** - Logo, navigation, language toggle
+1. **Header** - Logo, navigation, language toggle (desktop) + mobile hamburger menu
 2. **Hero** - Event branding with logo, date, and primary CTAs
 3. **Event Details** - Bilingual event information
-4. **Tickets** - Three-tier pricing with detailed inclusions
+4. **Applications** - Awards and Scholarship application CTAs and links
 5. **Contact** - Placeholder forms and contact information
 6. **Footer** - Organization info and legal details
 
@@ -90,6 +90,14 @@ tailwind.config = {
 - **Container**: max-w-7xl with responsive padding
 - **Sections**: Consistent py-16 sm:py-20 spacing
 - **Grid**: CSS Grid and Flexbox for layouts
+
+## 🌐 Header & Navigation
+
+### Mobile Menu Behavior
+- On small screens, the horizontal nav is replaced with a hamburger button.
+- Tapping the button reveals a slide-down panel with nav links and EN/FR language toggle.
+- The panel animates (opacity/translate) and auto-closes when a link is tapped or on Escape.
+- On desktop (sm and up), the full horizontal nav and EN/FR toggle are visible in the header.
 
 ## 🌐 Language Toggle
 
