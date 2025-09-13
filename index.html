@@ -24,8 +24,9 @@
     <meta property="og:url" content="http://localhost/ableorg.ca" />
     <meta
       property="og:image"
-      content="http://localhost/ableorg.ca/assets/og-image.jpg"
+      content="http://localhost/ableorg.ca/assets/og-image.svg"
     />
+    <meta property="og:image:type" content="image/svg+xml" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,7 +40,7 @@
     />
     <meta
       name="twitter:image"
-      content="http://localhost/ableorg.ca/assets/og-image.jpg"
+      content="http://localhost/ableorg.ca/assets/og-image.svg"
     />
 
     <!-- Favicon -->
@@ -72,12 +73,53 @@
       };
     </script>
 
+    <!-- JSON-LD: Event Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "A.B.L.E. 33rd Scholarship and Awards Gala 2025",
+      "startDate": "2025-11-01T18:00:00-04:00",
+      "endDate": "2025-11-02T01:00:00-04:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Automotive Building – Exhibition Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "105 Princes' Blvd",
+          "addressLocality": "Toronto",
+          "addressRegion": "ON",
+          "postalCode": "M6K 3C3",
+          "addressCountry": "CA"
+        }
+      },
+      "image": ["http://localhost/ableorg.ca/assets/og-image.svg"],
+      "description": "Strength Through Struggle: A Journey of Perseverance and Endurance.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Association of Black Law Enforcers (A.B.L.E.)",
+        "url": "http://localhost/ableorg.ca"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "http://localhost/ableorg.ca/tickets.html#id=112&display=list&cid=1852&wid=801",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
     <!-- Language Toggle JavaScript -->
     <script>
       // Set default language to English
       let currentLanguage = 'en';
 
       function setLanguage(lang) {
+        // Update <html lang>
+        try { document.documentElement.setAttribute('lang', lang === 'fr' ? 'fr' : 'en'); } catch(e){}
+        // Persist
+        try { localStorage.setItem('able_lang', lang); } catch(e){}
         currentLanguage = lang;
 
         // Update button styles
@@ -120,7 +162,8 @@
 
       // Initialize on page load
       document.addEventListener('DOMContentLoaded', function () {
-        setLanguage('en');
+        const savedLang = (function(){ try { return localStorage.getItem('able_lang') || 'en'; } catch(e){ return 'en'; }})();
+        setLanguage(savedLang);
         initVideoPlayer();
         initScrollSpy();
 
@@ -208,6 +251,33 @@
           });
         }
       }
+
+      // Countdown to event
+      (function initCountdown(){
+        const target = new Date('2025-11-01T18:00:00-04:00'); // 6:00 PM ET
+        const els = {
+          d: document.getElementById('cd-days'),
+          h: document.getElementById('cd-hours'),
+          m: document.getElementById('cd-mins'),
+          s: document.getElementById('cd-secs'),
+        };
+        if (!els.d) return;
+        function pad(n){ return String(n).padStart(2,'0'); }
+        function tick(){
+          const now = new Date();
+          let diff = Math.max(0, target - now);
+          const days = Math.floor(diff / (1000*60*60*24)); diff -= days*24*60*60*1000;
+          const hours = Math.floor(diff / (1000*60*60)); diff -= hours*60*60*1000;
+          const mins = Math.floor(diff / (1000*60)); diff -= mins*60*1000;
+          const secs = Math.floor(diff / 1000);
+          els.d.textContent = days;
+          els.h.textContent = pad(hours);
+          els.m.textContent = pad(mins);
+          els.s.textContent = pad(secs);
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
 
       // Scroll spy to set active nav based on section in view
       function initScrollSpy() {
@@ -463,6 +533,28 @@
                 >
                   Contact A.B.L.E.
                 </a>
+              </div>
+
+              <!-- Countdown -->
+              <div class="mt-8">
+                <div class="flex gap-3" id="countdown" aria-label="Countdown to event">
+                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
+                    <div class="text-2xl font-display text-ablegold" id="cd-days">--</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Days</div>
+                  </div>
+                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
+                    <div class="text-2xl font-display text-ablegold" id="cd-hours">--</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Hours</div>
+                  </div>
+                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
+                    <div class="text-2xl font-display text-ablegold" id="cd-mins">--</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Minutes</div>
+                  </div>
+                  <div class="text-center bg-neutral-900/60 border border-ablegold/20 rounded-lg px-4 py-3">
+                    <div class="text-2xl font-display text-ablegold" id="cd-secs">--</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Seconds</div>
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -32,6 +32,8 @@
     <script>
       let currentLanguage = 'en';
       function setLanguage(lang) {
+        try { document.documentElement.setAttribute('lang', lang === 'fr' ? 'fr' : 'en'); } catch(e){}
+        try { localStorage.setItem('able_lang', lang); } catch(e){}
         currentLanguage = lang;
         document.querySelectorAll('.lang-toggle').forEach((btn) => {
           btn.classList.remove('text-ablegold', 'font-medium');
@@ -55,7 +57,8 @@
         });
       }
       document.addEventListener('DOMContentLoaded', () => {
-        setLanguage('en');
+        const savedLang = (function(){ try { return localStorage.getItem('able_lang') || 'en'; } catch(e){ return 'en'; }})();
+        setLanguage(savedLang);
         const btn = document.getElementById('mobile-menu-button');
         const panel = document.getElementById('mobile-menu');
         if (btn && panel) {
