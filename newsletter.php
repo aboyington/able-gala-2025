@@ -64,9 +64,11 @@ if (!$sent) {
   $sent = @mail($to, $subject, $body, $headers);
 }
 
-// Basic CSV backup (optional): write to ../private/newsletter.csv if exists or writable
-$csvPath = dirname(__FILE__).'/../private/newsletter.csv';
-if (is_writable(dirname($csvPath))) {
+// Basic CSV backup (optional): write to ./storage/newsletter.csv (created if missing)
+$csvDir  = __DIR__ . '/storage';
+$csvPath = $csvDir . '/newsletter.csv';
+if (!is_dir($csvDir)) { @mkdir($csvDir, 0755, true); }
+if (is_dir($csvDir) && is_writable($csvDir)) {
   @file_put_contents($csvPath, sprintf("%s,%s\n", date('c'), $email), FILE_APPEND | LOCK_EX);
 }
 
