@@ -9,26 +9,31 @@
 
 ### Key Files
 - `index.html` - Main landing page
-- `able_logo.png` - Organization logo
-- `README.md` - Full project documentation
+- `assets/app.js` - App logic (language toggle, video, newsletter, scroll‑spy)
+- `assets/app.css` - Optional overrides
+- `assets/able_logo.png` - Organization logo
+- `Docs/README.md` - Full project documentation
 
 ## Current Status
 
-Updated 2025-09-13
-- Newsletter submit handler attaches on DOMContentLoaded and prevents page navigation; form has a non-JS guard (onsubmit="return false")
-- Scroll‑spy active navigation implemented
+Updated 2025-09-19
+- Newsletter submit handler attaches on DOMContentLoaded and prevents page navigation; form has a non-JS guard (onsubmit="return false`)`
+- Scroll‑spy active navigation implemented (hero, details, applications, 2024-recap, contact)
 - Production bundle synced to `/Users/anthony/Sites/ableorg.ca-production`
 - OG/Twitter meta and JSON-LD use live `https://ableorg.ca/gala2025` URLs
+- Navigation simplified to Event, Tickets, Applications, Newsletter
+- Hero redesigned (3 logos + rings); centered date block in subtle gold card
 
 ### ✅ Completed Features
 - Responsive design (mobile-first)
-- ABLE logo integration in header and hero
 - Bilingual language toggle (EN/FR) - **FUNCTIONAL**
-- Ticket sales section with 3 tiers
 - Professional gold/black branding
-- Hero section with logo, date, and CTAs
-- Event details section (bilingual)
-- Contact section with placeholders
+- Simplified navigation (Event, Tickets, Applications, Newsletter)
+- Hero section with 3-logo row (Toronto Police, ABLE, TPA), responsive rings, centered date block
+- Event details section (bilingual) with flyer info (pricing/time/venue)
+- Tickets (Membee) integration and dedicated page
+- Applications section with Awards/Scholarship CTAs
+- Contact/Newsletter section
 - Footer with organization info
 
 ### 🔧 Client Integration Needed
@@ -89,10 +94,10 @@ Most content can be updated by editing `index.html`:
 - Contact information
 - Organization messaging
 
-### Image Updates
-- Replace `able_logo.png` for logo changes
-- Add images to `/assets` or `/images` folders
-- Update image paths in HTML
+### Image/Asset Updates
+- Replace `assets/able_logo.png` for logo changes
+- Add all images/videos to `/assets`
+- Update paths in HTML accordingly
 
 ## Performance
 
@@ -136,6 +141,7 @@ Most content can be updated by editing `index.html`:
 3. Test newsletter (no navigation to newsletter.php; JSON response handled by JS)
 4. If using reCAPTCHA, set `RECAPTCHA_SECRET` on server and add `window.RECAPTCHA_SITE_KEY` in index.html
 5. Configure SMTP if using PHPMailer for higher reliability (optional)
+6. Ensure `_backup/` remains local-only (ignored by Git)
 
 ## Future Enhancements
 
@@ -156,5 +162,5 @@ Most content can be updated by editing `index.html`:
 
 ---
 
-**Last Updated**: September 7, 2025
+**Last Updated**: September 19, 2025
 **Next Review**: After client feedback received

@@ -2,20 +2,23 @@
 
 ## Project Overview
 
-Updated 2025-09-13
+Updated 2025-09-19
 - Newsletter submits via fetch without navigation; onsubmit guard prevents accidental redirects if JS fails
-- Scroll‑spy active nav highlighting implemented (hero, details, applications, contact)
+- Scroll‑spy active nav highlighting implemented (hero, details, applications, 2024-recap, contact)
 - Production bundle path: /Users/anthony/Sites/ableorg.ca-production (ready-to-upload)
 - Live OG/Twitter URLs point to https://ableorg.ca/gala2025
 - Tickets links use the official Membee deep link
+- Navigation simplified: Event, Tickets, Applications, Newsletter, EN | FR
+- Hero redesigned: three-logo row (Toronto Police, ABLE, TPA) with subtle rings; centered date block
 
 This is a professional landing page for The Association of Black Law Enforcers (A.B.L.E.) 2025 Annual Gala, featuring a bilingual (English/French) design with integrated ticket sales functionality.
 
 **Event Details:**
-- **Event**: 2025 ABLE Gala  
+- **Event**: A.B.L.E 33rd Annual Scholarship and Awards Gala  
 - **Theme**: "Strength Through Struggle: A Journey of Perseverance and Endurance"
-- **Date**: Saturday, November 1, 2025
-- **Location**: Automotive Building – Exhibition Place, Toronto
+- **Date**: Saturday, November 1, 2025 (6:00pm – 1:00am)
+- **Location**: Automotive Building – Exhibition Place, 105 Princes' Blvd, Toronto
+- **Tickets**: $150; **Table of Ten**: $1,500; **Cocktails**: 6:00pm
 - **Hashtags**: #ABLEGala2025 #Unity #Strength #Excellence
 
 ## 🌟 Features
@@ -28,12 +31,13 @@ This is a professional landing page for The Association of Black Law Enforcers (
 - ✅ **Accessibility** - WCAG compliant with proper focus states and alt text
 
 ### Page Sections
-1. **Header** - Logo, navigation, language toggle (desktop) + mobile hamburger menu
-2. **Hero** - Event branding with logo, date, and primary CTAs
-3. **Event Details** - Bilingual event information
+1. **Header** - Logo, simplified nav (Event, Tickets, Applications, Newsletter), language toggle (desktop) + mobile hamburger menu
+2. **Hero** - Event branding with three logos row (Toronto Police, ABLE, TPA), centered “Nov 1, 2025 / Save the Date” in a subtle gold card, primary CTAs
+3. **Event Details** - Bilingual event information incl. pricing/time/venue
 4. **Applications** - Awards and Scholarship application CTAs and links
-5. **Contact** - Placeholder forms and contact information
-6. **Footer** - Organization info and legal details
+5. **2024 Recap** - Video player with bilingual copy and stats
+6. **Newsletter** - Email signup and contact links
+7. **Footer** - Organization info and legal details
 
 ### Tickets
 - All public CTAs point to Membee deep link: tickets.html#id=112&display=list&cid=1852&wid=801
@@ -45,7 +49,7 @@ This is a professional landing page for The Association of Black Law Enforcers (
 - **Styling**: Tailwind CSS (via CDN)
 - **Fonts**: Google Fonts (Inter + Playfair Display)
 - **Hosting**: MAMP local server (port 80)
-- **Assets**: PNG logo, responsive images
+- **Assets**: /assets for images, video, JS (app.js) and CSS (app.css)
 
 ### Custom Tailwind Configuration
 ```javascript
@@ -70,13 +74,22 @@ tailwind.config = {
 ```
 /Users/anthony/Sites/ableorg.ca/
 ├── index.html                 # Main landing page
-├── able_logo.png             # ABLE organization logo
-├── 2025_gala.png            # Reference image (gala poster)
-├── ableorg.ca_index.php.png # Reference image (original site)
-├── able_header.png          # Reference image (header design)
-├── assets/                  # Asset folder (ready for expansion)
-├── images/                  # Images folder (ready for expansion)
-└── README.md               # This documentation
+├── awards.html               # Awards application page
+├── scholarship.html          # Scholarship application page
+├── tickets.html              # Tickets page (Membee embed)
+├── newsletter.php            # Newsletter backend
+├── assets/                   # All media and app code
+│   ├── able_logo.png
+│   ├── hero_bg.jpeg
+│   ├── Toronto-Police.png
+│   ├── Toronto-Police-Association.png
+│   ├── re-cap_32nd_awards_gala.mp4
+│   ├── event_flyer_en.jpeg
+│   ├── event_flyer_fr.jpeg
+│   ├── app.js                # Application JS (language toggle, video, newsletter, scroll‑spy)
+│   └── app.css               # Optional overrides
+├── Docs/                     # Project docs
+└── _backup/                  # Local snapshots (ignored by Git)
 ```
 
 ## 🎨 Design System
@@ -143,13 +156,13 @@ function setLanguage(lang) {
 The project uses:
 - Tailwind CSS from CDN (no build process)
 - Google Fonts from CDN
-- Local logo image (able_logo.png)
+- Local assets from /assets (logo, flyers, video, JS/CSS)
 
 ## ✅ Ready for Production
 
 ### Production Bundle
 - Path: `/Users/anthony/Sites/ableorg.ca-production`
-- Contents: index.html, tickets.html, awards.html, scholarship.html, newsletter.php, robots.txt, sitemap.xml, assets/, media
+- Contents: index.html, tickets.html, awards.html, scholarship.html, newsletter.php, robots.txt, sitemap.xml, assets/
 
 ### Pre-Launch Checklist
 - [ ] Verify Open Graph/Twitter image URLs point to `https://ableorg.ca/gala2025/assets/og-image.svg`
