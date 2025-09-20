@@ -5,7 +5,7 @@
 Updated 2025-09-19
 - Newsletter submits via fetch without navigation; onsubmit guard prevents accidental redirects if JS fails
 - Scroll‑spy active nav highlighting implemented (hero, details, applications, 2024-recap, contact)
-- Production bundle path: /Users/anthony/Sites/ableorg.ca-production (ready-to-upload)
+- Deployment: Live at https://ableorg.ca/ (flyer slider + link) and https://ableorg.ca/gala2025/ (promo site). No separate production folder; deploy directly from this project’s files.
 - Live OG/Twitter URLs point to https://ableorg.ca/gala2025
 - Tickets links use the official Membee deep link
 - Navigation simplified: Event, Tickets, Applications, Newsletter, EN | FR
@@ -158,11 +158,12 @@ The project uses:
 - Google Fonts from CDN
 - Local assets from /assets (logo, flyers, video, JS/CSS)
 
-## ✅ Ready for Production
+## ✅ Deployment
 
-### Production Bundle
-- Path: `/Users/anthony/Sites/ableorg.ca-production`
-- Contents: index.html, tickets.html, awards.html, scholarship.html, newsletter.php, robots.txt, sitemap.xml, assets/
+- Live URLs:
+  - Main site: https://ableorg.ca/ (home page shows bilingual flyer slider linking to gala site)
+  - Gala site: https://ableorg.ca/gala2025/
+- Deployment model: Upload files from this repository’s root (no separate production folder). Keep `_backup/` local-only and excluded from Git.
 
 ### Pre-Launch Checklist
 - [ ] Verify Open Graph/Twitter image URLs point to `https://ableorg.ca/gala2025/assets/og-image.svg`

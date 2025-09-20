@@ -19,7 +19,7 @@
 Updated 2025-09-19
 - Newsletter submit handler attaches on DOMContentLoaded and prevents page navigation; form has a non-JS guard (onsubmit="return false`)`
 - Scroll‑spy active navigation implemented (hero, details, applications, 2024-recap, contact)
-- Production bundle synced to `/Users/anthony/Sites/ableorg.ca-production`
+- Deployment is live-only; no separate production folder. Files from this project are uploaded directly to the host (ableorg.ca and ableorg.ca/gala2025/).
 - OG/Twitter meta and JSON-LD use live `https://ableorg.ca/gala2025` URLs
 - Navigation simplified to Event, Tickets, Applications, Newsletter
 - Hero redesigned (3 logos + rings); centered date block in subtle gold card
@@ -132,16 +132,16 @@ Most content can be updated by editing `index.html`:
 - Port 80
 - Static files + PHP handler for newsletter
 
-### Production Bundle
-- `/Users/anthony/Sites/ableorg.ca-production` (ready to upload folder)
+### Deployment Notes
+- Live hosting: https://ableorg.ca/ and https://ableorg.ca/gala2025/
+- Upload the site files from this project directly to the host (no `/ableorg.ca-production` folder).
 
-### Migration Steps
-1. Upload contents of `ableorg.ca-production/` to your host’s `gala2025` path
-2. Verify OG/Twitter images and JSON-LD resolve at the live domain
-3. Test newsletter (no navigation to newsletter.php; JSON response handled by JS)
-4. If using reCAPTCHA, set `RECAPTCHA_SECRET` on server and add `window.RECAPTCHA_SITE_KEY` in index.html
-5. Configure SMTP if using PHPMailer for higher reliability (optional)
-6. Ensure `_backup/` remains local-only (ignored by Git)
+### Post-Deploy Checks
+1. Verify OG/Twitter images and JSON-LD resolve at the live domain
+2. Test newsletter (no navigation to newsletter.php; JSON response handled by JS)
+3. If using reCAPTCHA, set `RECAPTCHA_SECRET` on server and add `window.RECAPTCHA_SITE_KEY` in index.html
+4. Configure SMTP if using PHPMailer for higher reliability (optional)
+5. Ensure `_backup/` remains local-only (ignored by Git)
 
 ## Future Enhancements
 
