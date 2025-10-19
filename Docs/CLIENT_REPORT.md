@@ -70,8 +70,3 @@ This report summarizes the website updates and gala promotion work completed acr
 
 ## Follow‑Up Recommendations
 - If desired for production hardening: self‑host Tailwind via a build step or PostCSS to remove CDN notice in console (optional for this static site).
-- Add structured data (Organization) on main pages to complement Event schema on the Gala microsite.
-- Consider per‑page, short meta descriptions in addition to the site‑wide one for improved SERP relevance.
-
----
-If any additional changes or a formatted PDF export is required, let us know.
