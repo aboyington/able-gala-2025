@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ABLE//Gala 2025//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:able-gala-2025@ableorg.ca
+DTSTAMP:20250913T000000Z
+DTSTART;TZID=America/Toronto:20251101T180000
+DTEND;TZID=America/Toronto:20251102T010000
+SUMMARY:A.B.L.E. 33rd Scholarship and Awards Gala 2025
+LOCATION:Automotive Building – Exhibition Place\, 105 Princes' Blvd\, Toronto\, ON M6K 3C3
+DESCRIPTION:Strength Through Struggle: A Journey of Perseverance and Endurance. Tickets: https://ableorg.ca/tickets.html#id=112&display=list&cid=1852&wid=801
+URL:https://ableorg.ca/tickets.html#id=112&display=list&cid=1852&wid=801
+END:VEVENT
+END:VCALENDAR

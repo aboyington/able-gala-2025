@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — Past Presidents | A.B.L.E.</title>
+    <meta
+      name="description"
+      content="Past Presidents of the Association of Black Law Enforcers (A.B.L.E.)."
+    />
+
+    <link rel="icon" type="image/png" href="../assets/images/able_logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { ablegold: '#D4AF37', abledark: '#0B0F19' },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              display: ['Playfair Display', 'ui-serif', 'Georgia'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../assets/app.css" />
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <!-- Header (matches President's Message) -->
+    <header
+      role="banner"
+      class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-ablegold/20"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded"
+          aria-label="A.B.L.E. Home"
+        >
+          <img
+            src="../assets/images/able_logo.png"
+            alt="A.B.L.E. Logo"
+            class="w-10 h-10 object-contain"
+          />
+          <span
+            class="hidden sm:block text-gray-100 font-sans font-medium tracking-tight"
+            >Association of Black Law Enforcers</span
+          >
+        </a>
+        <nav class="hidden md:flex items-center gap-2 lg:gap-4 text-lg">
+          <a href="/" class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Home</a
+          >
+          <div class="relative group">
+            <button
+              class="px-3 py-2 rounded hover:text-white text-ablegold font-semibold flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold"
+            >
+              <span>About Us</span>
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              class="absolute left-0 top-full -translate-y-[2px] w-56 origin-top-left rounded-md bg-black/95 border border-ablegold/20 shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition"
+            >
+              <a
+                href="/about/who-we-are.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Who We Are</a
+              >
+              <a
+                href="/about/presidents-message.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Presidents Message</a
+              >
+              <a
+                href="/about/past-presidents.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Past Presidents of A.B.L.E.</a
+              >
+              <a
+                href="/about/board-members.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >2022-2025 Board Members</a
+              >
+            </div>
+          </div>
+          <a
+            href="/membership.html"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Membership</a
+          >
+          <a
+            href="/gala2025/"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Gala</a
+          >
+          <a
+            href="/index.html#contact"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Contact</a
+          >
+        </nav>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-md border border-ablegold/30 text-gray-200 hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden absolute top-16 inset-x-0 z-50 bg-black/95 border-t border-ablegold/20 transition-all duration-200 ease-out opacity-0 -translate-y-2 pointer-events-none max-h-0 overflow-hidden"
+      >
+        <div class="px-4 py-4 space-y-2">
+          <a
+            href="/"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Home</a
+          >
+          <a
+            href="/about/who-we-are.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Who We Are</a
+          >
+          <a
+            href="/about/presidents-message.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Presidents Message</a
+          >
+          <a
+            href="/about/past-presidents.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Past Presidents of A.B.L.E.</a
+          >
+          <a
+            href="/about/board-members.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >2022-2025 Board Members</a>
+          <a
+            href="/membership.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Membership</a
+          >
+          <a
+            href="/gala2025/"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Gala</a
+          >
+          <a
+            href="/index.html#contact"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="relative pt-16 pb-14 sm:pt-20 sm:pb-16 border-b border-ablegold/20"
+      style="
+        background-image: url('../assets/hero_bg.jpeg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.18),transparent_50%)]"
+      ></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <h1 class="font-display text-4xl sm:text-5xl font-bold text-white">
+          Past Presidents of A.B.L.E.
+        </h1>
+        <p class="mt-2 text-gray-200">About Us</p>
+      </div>
+    </section>
+
+    <main>
+      <section class="py-10 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
+          <!-- President 5 -->
+          <article
+            class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+<div class="md:col-span-1">
+                <img
+                  src="../assets/images/president-5.png"
+                  alt="Kenton Chance"
+class="w-full max-w-[15rem] rounded object-cover"
+                />
+                <p class="mt-3 text-white font-semibold">Kenton Chance</p>
+              </div>
+<div class="md:col-span-4">
+                <h2 class="text-white font-display text-2xl font-bold mb-2">
+                  5th President of A.B.L.E.
+                </h2>
+                <div class="text-gray-300 leading-relaxed">
+                  <p class="mb-3">
+                    Kenton Chance commenced his career with the Ministry of
+                    Community Safety & Correctional Services as a Correctional
+                    Officer at the Whitby Jail in October 1990. In January of
+                    1992 he was reassigned to the Toronto East Detention Centre
+                    where in 2005 he was promoted to the rank of Operational
+                    Manager. Kenton then spent 6 months assigned to the Toronto
+                    Jail as an Operational Manager completing a lateral
+                    developmental assignment. As part of his career development
+                    he has acted in the role of Deputy Superintendent of
+                    Programs for an extended period at the Toronto East
+                    Detention Centre and also was one of the Institution’s
+                    Security Manager and Admitting Sergeant. On May 3rd 2009,
+                    Kenton Chance was appointed as Acting Manager of the Ontario
+                    Corrections Intelligence Unit. Kenton also acted as the
+                    Staff Inspector for the Correctional Services and Oversight
+                    Investigations.
+                  </p>
+                  <div class="hidden" data-more>
+                    <p class="mb-3">
+                      Mr. Chance is a member of the Association of Black Law
+                      Enforcers and served two terms as its 5th President.
+                      Kenton is an active member of the National Black Police
+                      Association International. Kenton is also a very active
+                      member in the Community and regularly conducts seminars
+                      and educational talks in various areas and sectors in the
+                      Community. Kenton has completed specialized Gang training
+                      with the New York City Department of Corrections on Rikers
+                      Island, with the Toronto Police and with Correctional
+                      Services Canada. As one of two Security Managers at the
+                      Toronto East Detention Centre, Kenton had a primary role
+                      in Gang Management focusing on Staff/Inmate safety,
+                      security as well as criminal intelligence.
+                    </p>
+                    <p class="mb-3">
+                      Mr. Chance has conducted several lectures and training
+                      with various Law Enforcement agencies about Gang Culture
+                      in Ontario Corrections. He also routinely conducts
+                      prevention sessions with young people about the dangers of
+                      Gang Involvement. Kenton is also actively involved in
+                      several Ministry committees and initiatives focusing on
+                      the elimination of harassment and discrimination while
+                      increasing accountability in the organization.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="mt-2 inline-flex items-center px-4 py-2 rounded-md border border-ablegold/40 text-ablegold hover:bg-ablegold hover:text-black transition"
+                    data-toggle
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- President 4 -->
+          <article
+            class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+<div class="md:col-span-1">
+                <img
+                  src="../assets/images/president-4.png"
+                  alt="Keith Merith"
+                  class="w-full max-w-[15rem] rounded object-cover"
+                />
+                <p class="mt-3 text-white font-semibold">Keith Merith</p>
+              </div>
+<div class="md:col-span-4">
+                <h2 class="text-white font-display text-2xl font-bold mb-2">
+                  4th President of A.B.L.E.
+                </h2>
+                <div class="text-gray-300 leading-relaxed">
+                  <p class="mb-3">
+                    Keith Merith, a 28 year Police veteran, has been with the
+                    York Regional Police Service (Y.R.P.) since 1986 and has
+                    achieved the rank of Inspector. Keith is presently assigned
+                    to the Investigative Services Branch as the Officer in
+                    Charge of the Organized Crime Bureau. His previous
+                    assignments at Y.R.P. have included the Drugs and Vice Unit,
+                    Uniform Patrol, Training and Education Bureau as an Academic
+                    / Use of Force Instructor and later as Officer-in-Charge,
+                    Use of Force Instructor, and as the primary facilitator of
+                    the Y.R.P. Employment Equity and Race Relations Program.
+                    Keith has also worked in Old Clothes, Criminal
+                    Investigations, Intelligence, Provincial Weapons Enforcement
+                    Unit, Duty Inspectors Office, and Officer in Charge of the
+                    Organized Crime Bureau. A dedicated and enthusiastic
+                    volunteer who is heavily connected to the community, Keith
+                    is also a former member of the Chiefs Community Council, and
+                    an original member of the Y.R.P. Employment Equity
+                    Committee. He has served in many different capacities in
+                    several different community organizations over the years.
+                  </p>
+                  <div class="hidden" data-more>
+                    <p class="mb-3">
+                      Keith was the first Y.R.P. Officer to be assigned a six
+                      month special assignment seconded position in local high
+                      schools teaching race relations, police and youth
+                      perceptions and law related courses. Keith has enjoyed
+                      rich and fulfilling careers in several fields prior to
+                      Policing which include five years as a Child Care Worker
+                      with the (then) Ministry of Community and Social Services,
+                      and two years as a Correctional Officer at Maplehurst
+                      Correctional facility. Keith holds a Bachelors Degree in
+                      Criminal Justice Studies from the University of Guelph. He
+                      is a graduate of the Rotmans School of Business Police
+                      Leadership Program, and the Humber College Law and
+                      Security Administration Program. Along with his other
+                      academic accomplishments Keith is also a graduate of the
+                      Ontario Management Development Program with a major in
+                      Leadership Skills.
+                    </p>
+                    <p class="mb-3">
+                      With the Association of Black Law Enforcers (A.B.L.E.)
+                      Keith was an Executive Member prior to 2011 when he was
+                      elected as the fourth President of A.B.L.E.Mr. Merith
+                      retired at the rank of Superintendent with York Regional
+                      Police after 31 years of service.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="mt-2 inline-flex items-center px-4 py-2 rounded-md border border-ablegold/40 text-ablegold hover:bg-ablegold hover:text-black transition"
+                    data-toggle
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- President 3 -->
+          <article
+            class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+<div class="md:col-span-1">
+                <img
+                  src="../assets/images/president-3.png"
+                  alt="Roy Smiley"
+                  class="w-full max-w-[15rem] rounded object-cover"
+                />
+                <p class="mt-3 text-white font-semibold">Roy Smiley</p>
+              </div>
+<div class="md:col-span-4">
+                <h2 class="text-white font-display text-2xl font-bold mb-2">
+                  3rd President of A.B.L.E.
+                </h2>
+                <div class="text-gray-300 leading-relaxed">
+                  <p class="mb-3">
+                    Roy R. Smiley was born and raised in Montego Bay, Jamaica.
+                    After graduation from high school, he started his working
+                    career as a Conciliation Officer with one of Jamaica’s two
+                    major trade unions. He worked in that position for two
+                    years, before immigrating to Canada in 1971.
+                  </p>
+                  <p class="mb-3">
+                    Upon his arrival in Canada, Roy worked in the private sector
+                    for two years, before attending the University of Toronto
+                    from 1973 to 1977, when he graduated with a Bachelor of Arts
+                    Degree, majoring in the social sciences.
+                  </p>
+                  <p class="mb-3">
+                    After graduation, Roy returned to the workforce working in
+                    the private sector, before taking a position with the
+                    Ontario Government in 1985, as a Correctional Officer in the
+                    Ministry of Community Safety and Correctional Services. In
+                    1987, he was appointed as a Probation and Parole Officer in
+                    the said ministry. He remained in that position until 2004,
+                    when he transferred to the Ministry of Children And Youth
+                    Services as a Probation Officer. Roy has been in that
+                    position since then.
+                  </p>
+                  <div class="hidden" data-more>
+                    <p class="mb-3">
+                      Roy became a member of A.B.L.E. in 1992, and was elected
+                      Treasurer in 1998, serving one term. He was re-elected as
+                      treasurer for two terms from 2003 to 2006, and was the
+                      Chair of the 1998 and 1999 Awards Ball Committees, and
+                      again from 2003 to 2011. In addition to serving one term
+                      as Community Services Issues Officer.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="mt-2 inline-flex items-center px-4 py-2 rounded-md border border-ablegold/40 text-ablegold hover:bg-ablegold hover:text-black transition"
+                    data-toggle
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- President 2 -->
+          <article
+            class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+<div class="md:col-span-1">
+                <img
+                  src="../assets/images/president-2.png"
+                  alt="Chris Bullen"
+                  class="w-full max-w-[15rem] rounded object-cover"
+                />
+                <p class="mt-3 text-white font-semibold">Chris Bullen</p>
+              </div>
+<div class="md:col-span-4">
+                <h2 class="text-white font-display text-2xl font-bold mb-2">
+                  2nd President of A.B.L.E.
+                </h2>
+                <div class="text-gray-300 leading-relaxed">
+                  <p class="mb-3">
+                    Superintendent Bullen is a veteran officer of the York
+                    Regional Police Service. He started his career in September
+                    1988 at 2 District in Richmond Hill as a uniform officer.
+                  </p>
+                  <p class="mb-3">
+                    He would later transfer to 5 District Headquarters in
+                    Markham and serve as the original “Street Beat” officer in
+                    Markham with the local high schools and the community for 3
+                    years. He would work in other units such as The CORE unit,
+                    C.I.B., Old Clothes, Public Order, Community Service Bureau,
+                    and the Traffic Bureau.
+                  </p>
+                  <p class="mb-3">
+                    Inspector Bullen holds a two Bachelor Degrees, one from
+                    Carlton University in Ottawa, and the other from Guelph
+                    University in Guelph. He holds several certificates from
+                    Seneca College in Adult/Staff training, Ontario Management
+                    and Human Resources Management. He is a graduate of the
+                    Ontario Police College with several courses such as Media
+                    Relations, Supervisors Management, Major Case Management,
+                    the LEADER course, and the Incident Command course in
+                    Ottawa. In 2010, he graduated from the University of Toronto
+                    Rotman’s School of Business – Police Leadership Program.
+                  </p>
+                  <div class="hidden" data-more>
+                    <p class="mb-3">
+                      Inspector Bullen is very active in the community. At
+                      present, he holds the office of Vice President of the
+                      Association of Black Law Enforcers (ABLE), York University
+                      Scholarship Selection Committee with the Randall Dooley
+                      Scholarship Foundation, York Regional District School
+                      Board Race Relation Advisory Committee, and Bill Crothers
+                      Secondary School Parent Council – where he chair’s the
+                      Governance Sub-committee. He is also the founder and chair
+                      of the H.O.P.E. Organization (Helping Other Prosper
+                      Equally), an organization dedicated to helping those who
+                      are less fortunate.
+                    </p>
+                    <p class="mb-3">
+                      He was recently promoted to the position of Superintendent
+                      within York Regional Police in 2018.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="mt-2 inline-flex items-center px-4 py-2 rounded-md border border-ablegold/40 text-ablegold hover:bg-ablegold hover:text-black transition"
+                    data-toggle
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- President 1 -->
+          <article
+            class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+<div class="md:col-span-1">
+                <img
+                  src="../assets/images/president-1.png"
+                  alt="David Mitchell"
+                  class="w-full max-w-[15rem] rounded object-cover"
+                />
+                <p class="mt-3 text-white font-semibold">David Mitchell</p>
+              </div>
+<div class="md:col-span-4">
+                <h2 class="text-white font-display text-2xl font-bold mb-2">
+                  1st President of A.B.L.E.
+                </h2>
+                <div class="text-gray-300 leading-relaxed">
+                  <p class="mb-3">
+                    With a varied background in Community Youth work, Criminal
+                    Justice and Diversity, David Mitchell is the founding
+                    President of the Association of Black Law Enforcers
+                    (A.B.L.E.). In 1990 he joined Ontario’s Correctional
+                    Services as a Correctional Officer and was assigned to the
+                    Toronto Jail. He has held progressively responsible
+                    positions including Sergeant Captain, Assistant Anti-Racism
+                    Coordinator, Contract Compliance Monitor and Deputy
+                    Superintendent. In September of 2007, the Commissioner of
+                    Corrections appointed David as the head of the new
+                    provincial Corrections Criminal Intelligence Unit. In May of
+                    2009, he was promoted to Superintendent and assigned to the
+                    Mimico Correctional Centre. In November of 2011, David
+                    received an executive promotion as the Director of Probation
+                    and Parole for the Central Region.
+                  </p>
+                  <div class="hidden" data-more>
+                    <p class="mb-3">
+                      David has spoken internationally in the United States,
+                      United Kingdom, Jamaica, and South Africa on the role of
+                      Minority Law Enforcement Associations in Police/Community
+                      Relations. In 2004, David received the Ontario Ombudsman’s
+                      award for excellence in complaint resolution. In 2008, he
+                      was recognized by the Government of Jamaica with an award
+                      for excellence in Criminal Justice. Again in 2008, David
+                      received the Ministry of Community Safety Ovation award
+                      for pioneering in the area of Security Threat Group
+                      Management. In 2011, he received the Ontario Women in Law
+                      Enforcement President’s Award and recently in April 2012
+                      David received the African Canadian Achievement Award for
+                      Law.
+                    </p>
+                    <p class="mb-3">
+                      David is a regular guest speaker at the Ontario Police
+                      College and sits as a Director on the Board of Directors
+                      for the International Social Justice Institute based in
+                      Atlanta Georgia. In March of 2008, Mayor David Miller of
+                      the City of Toronto appointed David as the Chair of the
+                      Board of Directors for the Toronto Community Housing
+                      Corporation, the first former resident to head the Board
+                      of the largest social housing provider in Canada. In 2010
+                      David was appointed to the Advisory Board for the
+                      University of Toronto’s Mowat Centre for Policy
+                      Alternatives.
+                    </p>
+                    <p class="mb-3">
+                      Mr. Mitchell was promoted to Assistant Deputy Minister for
+                      the Ontario Ministry of Children, Community and Social
+                      Services Youth Justice Services Division in 2016.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="mt-2 inline-flex items-center px-4 py-2 rounded-md border border-ablegold/40 text-ablegold hover:bg-ablegold hover:text-black transition"
+                    data-toggle
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-neutral-950 border-t border-ablegold/20">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-xs text-gray-500"
+      >
+        © 2025 Association of Black Law Enforcers (A.B.L.E.)
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      (function () {
+        const btn = document.getElementById('mobile-menu-button');
+        const panel = document.getElementById('mobile-menu');
+        if (!btn || !panel) return;
+        function openMenu(open) {
+          panel.classList.toggle('opacity-0', !open);
+          panel.classList.toggle('-translate-y-2', !open);
+          panel.classList.toggle('pointer-events-none', !open);
+          panel.classList.toggle('max-h-0', !open);
+          btn.setAttribute('aria-expanded', String(open));
+        }
+        btn.addEventListener('click', () => {
+          const currentlyOpen = !panel.classList.contains('opacity-0');
+          openMenu(!currentlyOpen);
+        });
+      })();
+
+      // Read more toggles
+      (function () {
+        document.querySelectorAll('[data-toggle]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const more = btn.parentElement.querySelector('[data-more]');
+            if (!more) return;
+            const open = more.classList.toggle('hidden');
+            if (open) {
+              more.classList.add('hidden');
+            } else {
+              more.classList.remove('hidden');
+            }
+            btn.textContent = more.classList.contains('hidden')
+              ? 'Read more'
+              : 'Read less';
+            btn.setAttribute('aria-expanded', btn.textContent === 'Read less');
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

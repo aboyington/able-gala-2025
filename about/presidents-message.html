@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — President's Message | A.B.L.E.</title>
+    <meta
+      name="description"
+      content="Greetings from the President of the Association of Black Law Enforcers (A.B.L.E.)."
+    />
+
+    <link rel="icon" type="image/png" href="../assets/images/able_logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { ablegold: '#D4AF37', abledark: '#0B0F19' },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              display: ['Playfair Display', 'ui-serif', 'Georgia'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../assets/app.css" />
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <!-- Header (matches who-we-are) -->
+    <header
+      role="banner"
+      class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-ablegold/20"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded"
+          aria-label="A.B.L.E. Home"
+        >
+          <img
+            src="../assets/images/able_logo.png"
+            alt="A.B.L.E. Logo"
+            class="w-10 h-10 object-contain"
+          />
+          <span
+            class="hidden sm:block text-gray-100 font-sans font-medium tracking-tight"
+            >Association of Black Law Enforcers</span
+          >
+        </a>
+        <nav class="hidden md:flex items-center gap-2 lg:gap-4 text-lg">
+          <a href="/" class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Home</a
+          >
+          <div class="relative group">
+            <button
+              class="px-3 py-2 rounded hover:text-white text-ablegold font-semibold flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold"
+            >
+              <span>About Us</span>
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              class="absolute left-0 top-full -translate-y-[2px] w-56 origin-top-left rounded-md bg-black/95 border border-ablegold/20 shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition"
+            >
+              <a
+                href="/about/who-we-are.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Who We Are</a
+              >
+              <a
+                href="/about/presidents-message.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Presidents Message</a
+              >
+              <a
+                href="/about/past-presidents.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Past Presidents of A.B.L.E.</a
+              >
+              <a
+                href="/about/board-members.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >2022-2025 Board Members</a
+              >
+            </div>
+          </div>
+          <a
+            href="/membership.html"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Membership</a
+          >
+          <a
+            href="/gala2025/"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Gala</a
+          >
+          <a
+            href="/index.html#contact"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Contact</a
+          >
+        </nav>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-md border border-ablegold/30 text-gray-200 hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden absolute top-16 inset-x-0 z-50 bg-black/95 border-t border-ablegold/20 transition-all duration-200 ease-out opacity-0 -translate-y-2 pointer-events-none max-h-0 overflow-hidden"
+      >
+        <div class="px-4 py-4 space-y-2">
+          <a
+            href="/"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Home</a
+          >
+          <a
+            href="/about/who-we-are.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Who We Are</a
+          >
+          <a
+            href="/about/presidents-message.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Presidents Message</a
+          >
+          <a
+            href="/membership.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Membership</a
+          >
+          <a
+            href="/gala2025/"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Gala</a
+          >
+          <a
+            href="/index.html#contact"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero (same layout as who-we-are) -->
+    <section
+      class="relative pt-16 pb-14 sm:pt-20 sm:pb-16 border-b border-ablegold/20"
+      style="
+        background-image: url('../assets/hero_bg.jpeg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.18),transparent_50%)]"
+      ></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <h1 class="font-display text-4xl sm:text-5xl font-bold text-white">
+          President's Message
+        </h1>
+        <p class="mt-2 text-gray-200">About Us</p>
+      </div>
+    </section>
+
+    <main>
+      <section class="py-10 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2
+            class="text-2xl sm:text-3xl font-display font-bold text-white mb-6"
+          >
+            Greetings From The President
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+            <!-- Photo and caption -->
+            <div class="md:col-span-2">
+              <img
+                src="../assets/images/jacqueline-edwards.png"
+                alt="Jacqueline Edwards, President, Association of Black Law Enforcers (A.B.L.E.)"
+                class="w-full max-w-xs md:max-w-none rounded object-cover"
+              />
+              <div class="mt-4">
+                <p class="text-white font-semibold leading-tight">
+                  Jacqueline Edwards
+                </p>
+                <p class="text-gray-300 text-sm leading-tight">President</p>
+                <p class="text-gray-400 text-xs leading-tight">
+                  Association of Black Law Enforcers
+                </p>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="md:col-span-3 text-gray-300 leading-relaxed space-y-4">
+              <p>
+                I am honoured and humbled to serve a third term as president of
+                this incredible association alongside my eight committed,
+                passionate, talented colleagues, who bring an unbelievable set
+                of skills and lived experience to their respective roles. My
+                thanks to: Alain, Dale, Julie, Kenton, Kolin, Mark, and Rebecca.
+              </p>
+              <p>
+                Collectively we will do our best to ensure that ABLE continues
+                to be recognized as a leading organization, focused on
+                advocating for its membership, increasing representation,
+                recognizing professional excellence, investing in the next
+                generation of leaders, and being a bridge between law
+                enforcement and Black communities, organizations, and key
+                partners.
+              </p>
+              <p>
+                We know that a more diverse law enforcement and justice sector
+                will not automatically remove the inequities, injustices and
+                systemic racism, however, a more diverse sector will help to
+                dismantle the various forms of discrimination within the
+                criminal justice system.
+              </p>
+              <p>
+                ABLE is an organization that believes in the importance of
+                investing in youth as they pursue higher education to achieve
+                their goals of working in the justice sector. Supporting our
+                youth will not only lift them up but it will also support our
+                goal of increasing their trust and confidence in the law
+                enforcement community that has been eroded over the years. We
+                will support and empower our youth as they come to terms with
+                the recent and ongoing disproportionate use of force by police
+                and the overrepresentation of Black people in our jails. By
+                believing in our youth and their futures, we will address the
+                underrepresentation of Black and racialized peoples employed
+                across the criminal justice landscape.
+              </p>
+              <p>
+                A.B.L.E. celebrates the impressive appointments of several Black
+                individuals in the past year. The Honourable Michael Tulloch was
+                appointed the Chief Justice of Ontario and Greg Fergus is the
+                first Black individual to be appointed the Speaker of the House
+                of Commons. We have come a long way in achieving goals of
+                enhancing equity, diversity and inclusivity in the law
+                enforcement community. At the same time, we know that our work
+                must continue. We are here tonight to renew our commitment to
+                achieve our goals and live our values. Our values will transform
+                the criminal justice system and offer fair and equitable
+                opportunities to all.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-neutral-950 border-t border-ablegold/20">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-xs text-gray-500"
+      >
+        © 2025 Association of Black Law Enforcers (A.B.L.E.)
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      (function () {
+        const btn = document.getElementById('mobile-menu-button');
+        const panel = document.getElementById('mobile-menu');
+        if (!btn || !panel) return;
+        function openMenu(open) {
+          panel.classList.toggle('opacity-0', !open);
+          panel.classList.toggle('-translate-y-2', !open);
+          panel.classList.toggle('pointer-events-none', !open);
+          panel.classList.toggle('max-h-0', !open);
+          btn.setAttribute('aria-expanded', String(open));
+        }
+        btn.addEventListener('click', () => {
+          const currentlyOpen = !panel.classList.contains('opacity-0');
+          openMenu(!currentlyOpen);
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABLE — Membership</title>
+    <meta
+      name="description"
+      content="Become a member of the Association of Black Law Enforcers (A.B.L.E.). Join, renew, or apply for membership."
+    />
+
+    <link rel="icon" type="image/png" href="assets/images/able_logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { ablegold: '#D4AF37', abledark: '#0B0F19' },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              display: ['Playfair Display', 'ui-serif', 'Georgia'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="assets/app.css" />
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <!-- Header (mirrors gala2025) -->
+    <header
+      role="banner"
+      class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-yellow-500/20 relative"
+    >
+      <div
+        class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded"
+          aria-label="Go to A.B.L.E. main site"
+        >
+          <img
+            src="assets/images/able_logo.png"
+            alt="A.B.L.E. Logo"
+            class="w-10 h-10 object-contain"
+          />
+          <span class="block">
+            <h1
+              class="text-gray-100 font-sans font-medium tracking-tight leading-tight whitespace-normal sm:whitespace-nowrap max-w-[150px] sm:max-w-none text-sm sm:text-sm lg:text-base"
+            >
+              Association of Black Law Enforcers
+            </h1>
+          </span>
+        </a>
+        <nav class="hidden md:flex items-center gap-2 lg:gap-4 text-lg">
+          <a href="/" class="px-3 py-2 rounded hover:text-white text-gray-300">Home</a>
+          <div class="relative group">
+            <button class="px-3 py-2 rounded hover:text-white text-gray-300 flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold">
+              <span>About Us</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 top-full w-56 origin-top-left rounded-md bg-black/95 border border-ablegold/20 shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+              <a href="/about/who-we-are.html" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">Who We Are</a>
+              <a href="/about/presidents-message.html" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">Presidents Message</a>
+              <a href="/about/past-presidents.html" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">Past Presidents of A.B.L.E.</a>
+              <a href="/about/board-members.html" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">2022-2025 Board Members</a>
+            </div>
+          </div>
+          <a href="/membership.html" class="px-3 py-2 rounded hover:text-white text-ablegold font-semibold">Membership</a>
+          <a href="/gala2025/" class="px-3 py-2 rounded hover:text-white text-gray-300">Gala</a>
+          <a href="/index.html#contact" class="px-3 py-2 rounded hover:text-white text-gray-300">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-md border border-ablegold/30 text-gray-200 hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:hidden absolute top-16 inset-x-0 z-50 bg-black/95 border-t border-ablegold/20 transition-all duration-200 ease-out opacity-0 -translate-y-2 pointer-events-none max-h-0 overflow-hidden">
+        <div class="px-4 py-4 space-y-2">
+          <a href="/" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Home</a>
+          <details class="group">
+            <summary class="list-none cursor-pointer px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900 flex items-center justify-between">About Us <span class="ml-2">▾</span></summary>
+            <div class="mt-1 ml-3 space-y-1">
+              <a href="/about/who-we-are.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Who We Are</a>
+              <a href="/about/presidents-message.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Presidents Message</a>
+              <a href="/about/past-presidents.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Past Presidents of A.B.L.E.</a>
+              <a href="/about/board-members.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">2022-2025 Board Members</a>
+            </div>
+          </details>
+          <a href="/membership.html" class="block px-3 py-2 rounded-md text-ablegold hover:bg-neutral-900">Membership</a>
+          <a href="/gala2025/" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Gala</a>
+          <a href="/index.html#contact" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section
+        class="relative pt-20 pb-16 sm:pt-28 sm:pb-20"
+        style="
+          background-image: url('assets/hero_bg.jpeg');
+          background-size: cover;
+          background-position: center;
+        "
+      >
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <div class="lang-both">
+            <div class="lang-en-content">
+              <h1
+                class="font-display text-4xl sm:text-5xl font-bold text-white mb-4"
+              >
+                Become a Member
+              </h1>
+              <p class="text-gray-200">
+                Join A.B.L.E. and support our mission of unity, strength, and
+                excellence in law enforcement.
+              </p>
+            </div>
+            <div class="lang-fr-content" style="display: none">
+              <h1
+                class="font-display text-4xl sm:text-5xl font-bold text-white mb-4"
+              >
+                Devenez membre
+              </h1>
+              <p class="text-gray-200">
+                Joignez-vous à A.B.L.E. et soutenez notre mission d’unité, de
+                force et d’excellence dans l’application de la loi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Intro Copy -->
+      <section class="py-10 bg-black border-t border-ablegold/15">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+          <div class="lang-both">
+            <div class="lang-en-content text-gray-300 leading-relaxed">
+              A.B.L.E. membership is open to active and retired Black and other
+              racial minority peace officers and auxiliary police officers.
+              Community members who support the goals and objectives of A.B.L.E.
+              may also become members. Members may opt-out of directory listing.
+            </div>
+            <div
+              class="lang-fr-content text-gray-300 leading-relaxed"
+              style="display: none"
+            >
+              L’adhésion à A.B.L.E. est ouverte aux agents de la paix noirs et
+              autres minorités raciales, actifs ou retraités, ainsi qu’aux
+              constables auxiliaires. Les membres de la communauté qui
+              soutiennent les objectifs d’A.B.L.E. peuvent également devenir
+              membres. Les membres peuvent se retirer de l’annuaire.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Image -->
+      <section class="py-8 bg-black border-t border-ablegold/15">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+          <img
+            src="assets/images/nbpa-2023.jpg"
+            alt="A.B.L.E. members at NBPA 2023 event"
+            class="w-full rounded-xl border border-ablegold/25 shadow-2xl shadow-black/40 object-cover"
+          />
+        </div>
+      </section>
+
+      <!-- Pricing / Plans -->
+      <section class="py-12 bg-neutral-950 border-t border-ablegold/15">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Associate -->
+            <div
+              class="rounded-2xl border border-ablegold/25 ring-1 ring-ablegold/20 bg-black/40 backdrop-blur-sm p-6"
+            >
+              <h3 class="text-white font-display text-xl font-bold mb-2">
+                Associate Membership
+              </h3>
+              <div class="text-ablegold text-3xl font-display font-bold mb-4">
+                $25<span class="text-base align-top">/Yr</span>
+              </div>
+              <p class="text-gray-400 text-sm mb-6">
+                Active or retired Black or racial minority person employed or
+                who has retired from employment in the administration or
+                enforcement of the law (includes Auxiliary Police Officers) and
+                civilian members of law enforcement agencies.
+              </p>
+              <a
+                href="membership-associate.html"
+                class="inline-flex items-center justify-center w-full px-5 py-3 rounded-md bg-ablegold text-black font-semibold hover:bg-amber-400 transition-colors"
+                >Register</a
+              >
+            </div>
+
+            <!-- Primary -->
+            <div
+              class="rounded-2xl border border-ablegold/40 ring-2 ring-ablegold/30 bg-black/50 backdrop-blur-sm p-6 relative"
+            >
+              <div
+                class="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-ablegold text-black font-bold"
+              >
+                Most popular
+              </div>
+              <h3 class="text-white font-display text-xl font-bold mb-2">
+                Primary Membership
+              </h3>
+              <div class="text-ablegold text-3xl font-display font-bold mb-4">
+                $50<span class="text-base align-top">/Yr</span>
+              </div>
+              <p class="text-gray-400 text-sm mb-6">
+                Active or retired Black or racial minority peace officer (Police
+                Officer, Probation Officer, Parole Officer, Immigration Officer,
+                Court Services Officer, Correctional Officer, Customs Officer,
+                Sheriff’s Officer, Special Constable and By‑law Enforcement
+                Officer).
+              </p>
+              <a
+                href="membership-primary.html"
+                class="inline-flex items-center justify-center w-full px-5 py-3 rounded-md bg-ablegold text-black font-semibold hover:bg-amber-400 transition-colors"
+                >Register</a
+              >
+            </div>
+
+            <!-- Affiliate -->
+            <div
+              class="rounded-2xl border border-ablegold/25 ring-1 ring-ablegold/20 bg-black/40 backdrop-blur-sm p-6"
+            >
+              <h3 class="text-white font-display text-xl font-bold mb-2">
+                Affiliate Membership
+              </h3>
+              <div class="text-ablegold text-3xl font-display font-bold mb-4">
+                $25<span class="text-base align-top">/Yr</span>
+              </div>
+              <p class="text-gray-400 text-sm mb-6">
+                An individual who supports the goals and objectives of A.B.L.E.
+                Executive approval is required for affiliate members.
+              </p>
+              <a
+                href="membership-affiliate.html"
+                class="inline-flex items-center justify-center w-full px-5 py-3 rounded-md bg-ablegold text-black font-semibold hover:bg-amber-400 transition-colors"
+                >Register</a
+              >
+            </div>
+          </div>
+
+          <div class="mt-10 text-center">
+            <p class="text-gray-300 text-sm mb-4">
+              You may also download the Application in PDF or MS Word format. Applications can be mailed or emailed to
+              <a href="mailto:membership.able@gmail.com" class="text-ablegold hover:text-amber-400">membership.able@gmail.com</a>.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href="assets/docs/able_membership_application_form.pdf" download class="inline-flex items-center px-5 py-2 rounded-md border border-ablegold/40 text-gray-100 hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold">PDF Version</a>
+              <a href="assets/docs/able_membership_application_form.docx" download class="inline-flex items-center px-5 py-2 rounded-md border border-ablegold/40 text-gray-100 hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold">MS Word Version</a>
+            </div>
+          </div>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-neutral-950 border-t border-ablegold/15">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-10 text-center text-xs text-gray-500"
+      >
+        © 2025 Association of Black Law Enforcers (A.B.L.E.)
+      </div>
+    </footer>
+
+    <!-- Reuse site JS for language toggle & mobile menu behavior -->
+    <script src="gala2025/assets/app.js" defer></script>
+  </body>
+</html>

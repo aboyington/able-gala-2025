@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — Who We Are | A.B.L.E.</title>
+    <meta
+      name="description"
+      content="Learn about the Association of Black Law Enforcers (A.B.L.E.): our mission, vision, values, mandate, and history."
+    />
+
+    <link rel="icon" type="image/png" href="../assets/images/able_logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { ablegold: '#D4AF37', abledark: '#0B0F19' },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              display: ['Playfair Display', 'ui-serif', 'Georgia'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../assets/app.css" />
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <!-- Header (matches index) -->
+    <header
+      role="banner"
+      class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-ablegold/20"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <a
+          href="/"
+          class="flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded"
+          aria-label="A.B.L.E. Home"
+        >
+          <img
+            src="../assets/images/able_logo.png"
+            alt="A.B.L.E. Logo"
+            class="w-10 h-10 object-contain"
+          />
+          <span
+            class="hidden sm:block text-gray-100 font-sans font-medium tracking-tight"
+            >Association of Black Law Enforcers</span
+          >
+        </a>
+        <nav class="hidden md:flex items-center gap-2 lg:gap-4 text-lg">
+          <a href="/" class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Home</a
+          >
+          <div class="relative group">
+            <button
+              class="px-3 py-2 rounded hover:text-white text-ablegold font-semibold flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold"
+            >
+              <span>About Us</span>
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              class="absolute left-0 top-full -translate-y-[2px] w-56 origin-top-left rounded-md bg-black/95 border border-ablegold/20 shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition"
+            >
+              <a
+                href="/about/who-we-are.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Who We Are</a
+              >
+              <a
+                href="/about/presidents-message.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Presidents Message</a
+              >
+              <a
+                href="/about/past-presidents.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >Past Presidents of A.B.L.E.</a
+              >
+              <a
+                href="/about/board-members.html"
+                class="block px-4 py-2 text-gray-200 hover:bg-neutral-900"
+                >2022-2025 Board Members</a
+              >
+            </div>
+          </div>
+          <a
+            href="/membership.html"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Membership</a
+          >
+          <a
+            href="/gala2025/"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Gala</a
+          >
+          <a
+            href="/index.html#contact"
+            class="px-3 py-2 rounded hover:text-white text-gray-300"
+            >Contact</a
+          >
+        </nav>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-md border border-ablegold/30 text-gray-200 hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden absolute top-16 inset-x-0 z-50 bg-black/95 border-t border-ablegold/20 transition-all duration-200 ease-out opacity-0 -translate-y-2 pointer-events-none max-h-0 overflow-hidden"
+      >
+        <div class="px-4 py-4 space-y-2">
+          <a
+            href="/"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Home</a
+          >
+          <a
+            href="/about/who-we-are.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Who We Are</a
+          >
+          <a
+            href="/membership.html"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Membership</a
+          >
+          <a
+            href="/gala2025/"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Gala</a
+          >
+          <a
+            href="/index.html#contact"
+            class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="relative pt-16 pb-14 sm:pt-20 sm:pb-16 border-b border-ablegold/20"
+      style="
+        background-image: url('../assets/hero_bg.jpeg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.18),transparent_50%)]"
+      ></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <h1 class="font-display text-4xl sm:text-5xl font-bold text-white">
+          Who We Are
+        </h1>
+        <p class="mt-2 text-gray-200">About Us</p>
+      </div>
+    </section>
+
+    <main>
+      <section class="py-10 bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
+          <div class="text-gray-300 leading-relaxed">
+            <p class="mb-4">
+              The Association of Black Law Enforcers (A.B.L.E.) is a non‑profit
+              organization founded to address the needs and concerns of Black
+              law enforcement professionals and to advance our Mission, Vision
+              and Mandate.
+            </p>
+            <p class="mb-2">
+              A.B.L.E. membership includes Police Officers, Correctional
+              Officers, Probation and Parole Officers, Immigration Officers,
+              Court Services Officers, Sheriff’s Officers, Special Constables,
+              and civilian members of law enforcement agencies, as well as
+              allies from the community.
+            </p>
+          </div>
+
+          <!-- Mission -->
+          <div class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6">
+            <h2 class="text-white font-display text-2xl font-bold mb-3">
+              A.B.L.E. Mission
+            </h2>
+            <p class="text-gray-300">
+              We are a preeminent voice for Black law enforcement and criminal
+              justice professionals, advocating for policies and practices that
+              foster inclusion, eliminate discrimination and address anti-Black
+              racism wherever it presents in law enforcement and in service
+              delivery.
+            </p>
+          </div>
+
+          <!-- Logo + legend -->
+          <div class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6">
+            <h2 class="text-white font-display text-2xl font-bold mb-6">
+              Logo
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+              <img
+                src="../assets/images/able_logo.png"
+                alt="A.B.L.E. crest"
+                class="w-56 h-56 object-contain justify-self-center"
+              />
+              <ol class="list-decimal list-inside text-gray-300 space-y-1">
+                <li>Chains – A symbol of strength and unity</li>
+                <li>
+                  Shape of Inner Letters – Symbolic of continental Africa, the
+                  original home of the Black Race
+                </li>
+                <li>Maple Leaf – A symbol of Canada</li>
+                <li>
+                  Shield – A recognized symbol of Policing and Police
+                  professionals
+                </li>
+                <li>
+                  Key – A recognized symbol of Corrections and Correctional
+                  professionals
+                </li>
+                <li>
+                  Gavel – Represents the Criminal Justice system, law
+                  enforcement agencies and the professionals that serve within
+                  them
+                </li>
+                <li>
+                  Colors – Red, Black, and Green are traditional African colors.
+                  Blue, a color universally associated with law enforcement
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Vision -->
+          <div class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6">
+            <h2 class="text-white font-display text-2xl font-bold mb-3">
+              A.B.L.E. Vision
+            </h2>
+            <p class="text-gray-300">
+              We envision a law enforcement community where Black professionals
+              can thrive in professional environments that are free from
+              anti-Black racism and discrimination at work and in service
+              delivery to Black communities
+            </p>
+          </div>
+
+          <!-- Values -->
+          <div class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6">
+            <h2 class="text-white font-display text-2xl font-bold mb-3">
+              A.B.L.E. Values
+            </h2>
+            <p class="text-gray-300 mb-4">
+              A.B.L.E. is founded on the vision of law enforcement professionals
+              who adopted respect, courtesy, service, and professionalism as
+              core values to guide its members and their work. A.B.L.E. holds
+              dear and is rooted in these values.
+            </p>
+            <ul class="text-gray-300 grid sm:grid-cols-2 gap-3">
+              <li>
+                <span class="font-semibold text-white">Respect –</span> We value
+                and respect each other with dignity and professionalism
+              </li>
+              <li>
+                <span class="font-semibold text-white">Courtesy –</span> We
+                treat each other in a manner that fosters collaboration and team
+                work
+              </li>
+              <li class="sm:col-span-2">
+                <span class="font-semibold text-white">Service –</span> We are
+                guided by a core desire to uplift and support our members and
+                our communities
+              </li>
+              <li class="sm:col-span-2">
+                <span class="font-semibold text-white">Professionalism –</span>
+                We are a volunteer organization of law enforcement and criminal
+                justice professionals, subject matter experts, and community
+                leaders who seek to use our experiences and expertise to advance
+              </li>
+            </ul>
+          </div>
+
+          <!-- Mandate -->
+          <div class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6">
+            <h2 class="text-white font-display text-2xl font-bold mb-3">
+              A.B.L.E.’s mandate
+            </h2>
+            <p class="text-gray-300 mb-3">
+              A.B.L.E. is led by an engaged Board that has developed and is
+              guided by the following mandate:
+            </p>
+            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+              <li>
+                Being a leading voice on issues which impact our members and
+                Black communities
+              </li>
+              <li>
+                Collaborating with law enforcement and other criminal justice
+                agencies, associations and community organizations
+              </li>
+              <li>
+                Providing professional guidance and support to our members
+              </li>
+              <li>
+                Creating broader awareness and understanding of the various
+                aspects of the law enforcement and criminal justice profession
+                within Black communities. Encouraging membership from persons
+                and organizations interested in furthering the objectives of
+                A.B.L.E.
+              </li>
+              <li>
+                Holding events which are supportive of the aims and objectives
+                of A.B.L.E. and its membership
+              </li>
+              <li>
+                Connecting members to professional development opportunities
+              </li>
+              <li>
+                Recognizing and celebrating the professional excellence of our
+                membership
+              </li>
+              <li>
+                Providing scholarships annually in honour of the first Black Law
+                Enforcers in Canada. This scholarship shall be granted to
+                applicants who identify as Black, African, African-Canadian, or
+                African-Caribbean, pursuing post-secondary studies in any area
+                within the law enforcement or criminal justice field of study.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Definitions / Constitution highlights -->
+          <div class="rounded-xl border border-ablegold/25 bg-neutral-950 p-6">
+            <h2 class="text-white font-display text-2xl font-bold mb-3">
+              Definitions
+            </h2>
+            <p class="text-gray-300 mb-2">
+              The following definitions are understood:
+            </p>
+            <ul class="text-gray-300 space-y-2 list-disc list-inside">
+              <li>A.B.L.E.: Association of Black Law Enforcers</li>
+              <li>
+                Board of Directors: the governing body of A.B.L.E., elected by
+                its membership to oversee the management of the organization
+              </li>
+              <li>
+                Executive Committee of the Board: composed of elected board
+                directors and acts as a steering committee for the full board.
+                Its main purpose is to facilitate decision-making between board
+                meetings or in urgent and crisis circumstances Director: elected
+                by the membership, or appointed by the Board in the case of a
+                vacancy, into a particular role to serve on the Board of
+                Directors
+              </li>
+              <li>
+                Ex-Officio: a board member that is not elected or appointed, and
+                serves on the Board because of their past position on the Board,
+                expertise or knowledge (ie. Past President)
+              </li>
+              <li>
+                Member: individuals or organizations who have registered
+                officially to become a member, have paid their dues in full for
+                the calendar year, and have satisfied the requirements of
+                membership listed in this constitution
+              </li>
+              <li>
+                Black: members who self-identify as belonging to
+                African-Canadian, African-Caribbean, African, and African
+                diasporic communities
+              </li>
+            </ul>
+          </div>
+
+          <!-- Closing note -->
+          <p class="text-gray-400 text-sm">
+            A.B.L.E.’s story is not finished. This site will continue to evolve.
+          </p>
+
+          <!-- Responsive YouTube embed -->
+          <div class="relative w-full" style="padding-top: 56.25%">
+            <iframe
+              class="absolute inset-0 w-full h-full rounded-lg border border-ablegold/20"
+              src="https://www.youtube.com/embed/GxJ6XX8EKzI?si=BYRh9kQBw8nBVhKJ"
+              title="ABLE – Who We Are"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-neutral-950 border-t border-ablegold/20">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-xs text-gray-500"
+      >
+        © 2025 Association of Black Law Enforcers (A.B.L.E.)
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      (function () {
+        const btn = document.getElementById('mobile-menu-button');
+        const panel = document.getElementById('mobile-menu');
+        if (!btn || !panel) return;
+        function openMenu(open) {
+          panel.classList.toggle('opacity-0', !open);
+          panel.classList.toggle('-translate-y-2', !open);
+          panel.classList.toggle('pointer-events-none', !open);
+          panel.classList.toggle('max-h-0', !open);
+          btn.setAttribute('aria-expanded', String(open));
+        }
+        btn.addEventListener('click', () => {
+          const currentlyOpen = !panel.classList.contains('opacity-0');
+          openMenu(!currentlyOpen);
+        });
+      })();
+    </script>
+  </body>
+</html>
