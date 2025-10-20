@@ -28,6 +28,7 @@ This report summarizes the website updates and gala promotion work completed acr
   - Presidents Message
   - Past Presidents of A.B.L.E.
   - 2022–2025 Board Members (new)
+- Gala site navigation: 'Home' link appears first in both desktop and mobile menus on gala2025 pages.
 - Mobile menus:
   - Standardized structure on all root and About pages to match `index.html`, including an “About Us” expandable section with the four subpages above.
   - Ensured mobile header always displays: A.B.L.E. logo, organization name (“Association of Black Law Enforcers”), and hamburger menu.

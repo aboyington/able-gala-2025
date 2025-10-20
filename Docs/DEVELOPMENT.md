@@ -21,14 +21,14 @@ Updated 2025-09-19
 - Scroll‑spy active navigation implemented (hero, details, applications, 2024-recap, contact)
 - Deployment is live-only; no separate production folder. Files from this project are uploaded directly to the host (ableorg.ca and ableorg.ca/gala2025/).
 - OG/Twitter meta and JSON-LD use live `https://ableorg.ca/gala2025` URLs
-- Navigation simplified to Event, Tickets, Applications, Newsletter
+- Navigation updated: Home, Event, Tickets, Applications, Newsletter (Home first)
 - Hero redesigned (3 logos + rings); centered date block in subtle gold card
 
 ### ✅ Completed Features
 - Responsive design (mobile-first)
 - Bilingual language toggle (EN/FR) - **FUNCTIONAL**
 - Professional gold/black branding
-- Simplified navigation (Event, Tickets, Applications, Newsletter)
+- Navigation (Home, Event, Tickets, Applications, Newsletter) — Home appears first
 - Hero section with 3-logo row (Toronto Police, ABLE, TPA), responsive rings, centered date block
 - Event details section (bilingual) with flyer info (pricing/time/venue)
 - Tickets (Membee) integration and dedicated page

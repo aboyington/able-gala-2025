@@ -8,7 +8,7 @@ Updated 2025-09-19
 - Deployment: Live at https://ableorg.ca/ (flyer slider + link) and https://ableorg.ca/gala2025/ (promo site). No separate production folder; deploy directly from this project’s files.
 - Live OG/Twitter URLs point to https://ableorg.ca/gala2025
 - Tickets links use the official Membee deep link
-- Navigation simplified: Event, Tickets, Applications, Newsletter, EN | FR
+- Navigation: Home, Event, Tickets, Applications, Newsletter, EN | FR
 - Hero redesigned: three-logo row (Toronto Police, ABLE, TPA) with subtle rings; centered date block
 
 This is a professional landing page for The Association of Black Law Enforcers (A.B.L.E.) 2025 Annual Gala, featuring a bilingual (English/French) design with integrated ticket sales functionality.
@@ -31,7 +31,7 @@ This is a professional landing page for The Association of Black Law Enforcers (
 - ✅ **Accessibility** - WCAG compliant with proper focus states and alt text
 
 ### Page Sections
-1. **Header** - Logo, simplified nav (Event, Tickets, Applications, Newsletter), language toggle (desktop) + mobile hamburger menu
+1. **Header** - Logo, nav (Home, Event, Tickets, Applications, Newsletter), language toggle (desktop) + mobile hamburger menu
 2. **Hero** - Event branding with three logos row (Toronto Police, ABLE, TPA), centered “Nov 1, 2025 / Save the Date” in a subtle gold card, primary CTAs
 3. **Event Details** - Bilingual event information incl. pricing/time/venue
 4. **Applications** - Awards and Scholarship application CTAs and links

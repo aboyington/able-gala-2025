@@ -36,6 +36,7 @@ Critical invariants and pitfalls
 - Language visibility: use inline display:none for the inactive language block; never Tailwind hidden.
 - Accessibility/persistence: keep <html lang> synced with selection; localStorage key able_lang.
 - Scroll‑spy coupling: section IDs and data-nav must remain aligned.
+- Gala navigation: 'Home' link must appear first in both desktop and mobile menus across all gala2025 pages.
 - Newsletter contract: frontend expects JSON; honeypot field name website; ensure gala2025/storage/ is writable for CSV logging.
 - reCAPTCHA (optional): client sets window.RECAPTCHA_SITE_KEY; server reads RECAPTCHA_SECRET.
 
