@@ -358,24 +358,6 @@
     </footer>
 
     <script>
-      // Mobile menu toggle
-      (function () {
-        const btn = document.getElementById('mobile-menu-button');
-        const panel = document.getElementById('mobile-menu');
-        if (!btn || !panel) return;
-        function openMenu(open) {
-          panel.classList.toggle('opacity-0', !open);
-          panel.classList.toggle('-translate-y-2', !open);
-          panel.classList.toggle('pointer-events-none', !open);
-          panel.classList.toggle('max-h-0', !open);
-          btn.setAttribute('aria-expanded', String(open));
-        }
-        btn.addEventListener('click', () => {
-          const currentlyOpen = !panel.classList.contains('opacity-0');
-          openMenu(!currentlyOpen);
-        });
-      })();
-
       // Read more toggles (same behavior as Past Presidents page)
       (function () {
         document.querySelectorAll('[data-toggle]').forEach((btn) => {
