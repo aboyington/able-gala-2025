@@ -74,7 +74,17 @@
           </div>
 
           <a href="/membership.html" class="px-3 py-2 rounded hover:text-white text-gray-300">Membership</a>
-          <a href="/gala2025/" class="px-3 py-2 rounded hover:text-white text-gray-300">Gala</a>
+          <div class="relative group">
+            <button class="px-3 py-2 rounded hover:text-white text-gray-300 flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold">
+              <span>Events</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 top-full w-56 origin-top-left rounded-md bg-black/95 border border-ablegold/20 shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition">
+              <a href="/events/index.html" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">Calendar</a>
+              <a href="https://ableorg.local/events/index.html#id=113&cid=1852&wid=801" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">Career Fair</a>
+              <a href="/gala2025/index.html" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">Gala</a>
+            </div>
+          </div>
           <a href="#contact" class="px-3 py-2 rounded hover:text-white text-gray-300">Contact</a>
         </nav>
 
@@ -98,7 +108,14 @@
             </div>
           </details>
           <a href="/membership.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Membership</a>
-          <a href="/gala2025/" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Gala</a>
+          <details class="group">
+            <summary class="list-none cursor-pointer px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900 flex items-center justify-between">Events <span class="ml-2">▾</span></summary>
+            <div class="mt-1 ml-3 space-y-1">
+              <a href="/events/index.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Calendar</a>
+              <a href="https://ableorg.local/events/index.html#id=113&cid=1852&wid=801" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Career Fair</a>
+              <a href="/gala2025/index.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Gala</a>
+            </div>
+          </details>
           <a href="#contact" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Contact</a>
         </div>
       </div>
@@ -112,12 +129,15 @@
             <div id="slider" class="relative w-full">
               <!-- Slides -->
               <div class="slide" aria-roledescription="slide">
-                <img src="assets/images/event_flyer_en.jpeg" alt="ABLE 33rd Annual Scholarship and Awards Gala — English poster" class="w-full h-auto object-cover" />
+                <img src="assets/images/gala2025-thankyou.jpg" alt="ABLE Gala 2025 — Thank you for attending" class="w-full h-auto object-cover" />
               </div>
               <div class="slide hidden" aria-roledescription="slide">
-                <img src="assets/images/event_flyer_fr.jpeg" alt="Gala annuel — affiche française" class="w-full h-auto object-cover" />
+                <img src="assets/images/gala2025-thankyou-community.jpg" alt="ABLE Gala 2025 — Thank you to our community" class="w-full h-auto object-cover" />
               </div>
 
+              <div class="slide hidden" aria-roledescription="slide">
+                <img src="assets/images/gala2025-thankyou-committee.jpg" alt="ABLE Gala 2025 — Thank you to our committee" class="w-full h-auto object-cover" />
+              </div>
               <!-- Controls -->
               <button id="prev" aria-label="Previous" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full border border-white/20">◀</button>
               <button id="next" aria-label="Next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full border border-white/20">▶</button>
@@ -132,9 +152,9 @@
       <!-- CTA to Gala -->
       <section class="py-12 sm:py-16 bg-neutral-950 border-t border-ablegold/20 text-center">
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3">Join us at the 33rd Annual Scholarship & Awards Gala</h2>
-          <p class="text-gray-300 mb-6">Be part of an inspiring evening celebrating unity, strength, and excellence.</p>
-          <a href="/gala2025/" class="inline-flex items-center justify-center px-8 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition">Go to Gala 2025</a>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3">Explore Events</h2>
+          <p class="text-gray-300 mb-6">Discover upcoming A.B.L.E. events.</p>
+          <a href="/events/index.html" class="inline-flex items-center justify-center px-8 py-3 bg-ablegold text-black font-semibold rounded-lg hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 transition">Explore Events</a>
         </div>
       </section>
 
@@ -152,24 +172,6 @@
     </footer>
 
     <script>
-      // Mobile menu behavior
-      (function(){
-        const btn = document.getElementById('mobile-menu-button');
-        const panel = document.getElementById('mobile-menu');
-        if (!btn || !panel) return;
-        function openMenu(open){
-          panel.classList.toggle('opacity-0', !open);
-          panel.classList.toggle('-translate-y-2', !open);
-          panel.classList.toggle('pointer-events-none', !open);
-          panel.classList.toggle('max-h-0', !open);
-          btn.setAttribute('aria-expanded', String(open));
-        }
-        btn.addEventListener('click', ()=>{
-          const currentlyOpen = !panel.classList.contains('opacity-0');
-          openMenu(!currentlyOpen);
-        });
-      })();
-
       // Simple slider
       (function(){
         const slider = document.getElementById('slider');
@@ -200,5 +202,6 @@
         setInterval(()=>advance(1), 6000);
       })();
     </script>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>

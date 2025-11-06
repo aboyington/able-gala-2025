@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ABLE — Associate Membership Application</title>
-    <meta name="description" content="Apply for A.B.L.E. Associate Membership." />
+    <title>ABLE — Events Calendar</title>
+    <meta name="description" content="Explore upcoming A.B.L.E. events." />
     <meta name="description_site" content="The Association of Black Law Enforcers (A.B.L.E.) is a non-profit organization formed in 1992 to address the needs and concerns of Black and other racial minorities in law enforcement and the community. The membership includes Police Officers, Correctional Officers, Probation and Parole Officers, Immigration Officers, Customs Officers, Court Services Officers, By-law Enforcement Officers, Sheriff's Officers, Special Constables and members from the community." />
-    <meta name="keywords" content="Association, Black, Enforcers, Association of Black Law Enforcers, non-profit, Police Officers, Correctional Officers, Probation and Parole Officers, Immigration Officers, Customs Officers, Court Services Officers, By-law Enforcement Officers, Sheriff's Officers, Special Constables" />
+    <meta name="keywords" content="Association, Black, Enforcers, Association of Black Law Enforcers, events, calendar" />
 
-    <link rel="icon" type="image/png" href="assets/images/able_logo.png" />
+    <link rel="icon" type="image/png" href="../assets/images/able_logo.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,17 +42,18 @@
     </script>
   </head>
   <body class="bg-black text-gray-100 antialiased">
-    <!-- Header -->
-    <header role="banner" class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-yellow-500/20 relative">
-      <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="/" class="flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded" aria-label="Go to A.B.L.E. main site">
-          <img src="assets/images/able_logo.png" alt="A.B.L.E. Logo" class="w-10 h-10 object-contain" />
-          <span class="block">
-            <h1 class="text-gray-100 font-sans font-medium tracking-tight leading-tight whitespace-normal sm:whitespace-nowrap max-w-[150px] sm:max-w-none text-sm sm:text-sm lg:text-base">Association of Black Law Enforcers</h1>
-          </span>
+    <!-- Header (mirrors membership.html) -->
+    <header role="banner" class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-ablegold/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center space-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold rounded" aria-label="A.B.L.E. Home">
+          <img src="../assets/images/able_logo.png" alt="A.B.L.E. Logo" class="w-10 h-10 object-contain" />
+          <span class="block text-gray-100 font-sans font-medium tracking-tight leading-tight whitespace-normal sm:whitespace-nowrap text-sm sm:text-base">Association of Black Law Enforcers</span>
         </a>
+
+        <!-- Nav -->
         <nav class="hidden md:flex items-center gap-2 lg:gap-4 text-lg">
           <a href="/" class="px-3 py-2 rounded hover:text-white text-gray-300">Home</a>
+
           <div class="relative group">
             <button class="px-3 py-2 rounded hover:text-white text-gray-300 flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold">
               <span>About Us</span>
@@ -65,9 +66,10 @@
               <a href="/about/board-members.html" class="block px-4 py-2 text-gray-200 hover:bg-neutral-900">2022-2025 Board Members</a>
             </div>
           </div>
-          <a href="/membership.html" class="px-3 py-2 rounded hover:text-white text-ablegold font-semibold">Membership</a>
+
+          <a href="/membership.html" class="px-3 py-2 rounded hover:text-white text-gray-300">Membership</a>
           <div class="relative group">
-            <button class="px-3 py-2 rounded hover:text-white text-gray-300 flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold">
+            <button class="px-3 py-2 rounded hover:text-white text-ablegold font-semibold flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold">
               <span>Events</span>
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
@@ -79,10 +81,14 @@
           </div>
           <a href="/index.html#contact" class="px-3 py-2 rounded hover:text-white text-gray-300">Contact</a>
         </nav>
+
+        <!-- Mobile menu button -->
         <button id="mobile-menu-button" class="md:hidden p-2 rounded-md border border-ablegold/30 text-gray-200 hover:border-ablegold focus:outline-none focus-visible:ring-2 focus-visible:ring-ablegold" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
+
+      <!-- Mobile menu -->
       <div id="mobile-menu" class="md:hidden absolute top-16 inset-x-0 z-50 bg-black/95 border-t border-ablegold/20 transition-all duration-200 ease-out opacity-0 -translate-y-2 pointer-events-none max-h-0 overflow-hidden">
         <div class="px-4 py-4 space-y-2">
           <a href="/" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Home</a>
@@ -95,9 +101,9 @@
               <a href="/about/board-members.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">2022-2025 Board Members</a>
             </div>
           </details>
-          <a href="/membership.html" class="block px-3 py-2 rounded-md text-ablegold hover:bg-neutral-900">Membership</a>
+          <a href="/membership.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Membership</a>
           <details class="group">
-            <summary class="list-none cursor-pointer px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900 flex items-center justify-between">Events <span class="ml-2">▾</span></summary>
+            <summary class="list-none cursor-pointer px-3 py-2 rounded-md text-ablegold hover:bg-neutral-900 flex items-center justify-between">Events <span class="ml-2">▾</span></summary>
             <div class="mt-1 ml-3 space-y-1">
               <a href="/events/index.html" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Calendar</a>
               <a href="https://ableorg.local/events/index.html#id=113&cid=1852&wid=801" class="block px-3 py-2 rounded-md text-gray-200 hover:bg-neutral-900">Career Fair</a>
@@ -110,29 +116,27 @@
     </header>
 
     <main>
-      <section class="pt-10 pb-6 bg-neutral-950 relative">
+      <!-- Hero -->
+      <section class="pt-10 pb-6 bg-neutral-950 relative border-b border-ablegold/20">
         <div aria-hidden="true" class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.10),transparent_60%)]"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h1 class="text-3xl sm:text-4xl font-display font-bold text-white mb-2">Associate Membership Application</h1>
-          <p class="text-gray-300">Secure application form powered by Membee.</p>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <h1 class="text-3xl sm:text-4xl font-display font-bold text-white mb-2">Events Calendar</h1>
+          <p class="text-gray-300">Explore upcoming A.B.L.E. events.</p>
         </div>
       </section>
 
+      <!-- Events Calendar Embed -->
       <section class="py-8">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
           <div class="bg-white text-black border border-ablegold/20 rounded-lg p-2">
-            <div id="membee-loading" class="p-6 text-center text-gray-700 hidden">
-              <div class="w-16 h-16 border-4 border-ablegold/20 border-t-ablegold rounded-full animate-spin mb-4 mx-auto"></div>
-              <p>Loading application form...</p>
-            </div>
             <div id="membee-container" class="membee-container">
-              <script src="https://memberservices.membee.com/feeds/Profile/ProfileScript.ashx?cid=1852&pid=501" type="text/javascript"></script>
-              <a style="visibility: hidden;" href="https://memberservices.membee.com/feeds/Profile/Profile.aspx?cid=1852&pid=501"></a>
+              <script src="https://memberservices.membee.com/feeds/Events/EventScript.ashx?cid=1852&wid=801" type="text/javascript"></script>
+              <a style="visibility: hidden;" href="https://memberservices.membee.com/feeds/Events/Event.aspx?cid=1852&wid=801"></a>
             </div>
             <noscript>
               <div class="p-6 text-center text-gray-700">
-                JavaScript is required to load this form. Open it directly here:
-                <a href="https://memberservices.membee.com/feeds/Profile/Profile.aspx?cid=1852&pid=501" target="_blank" rel="noopener" class="text-blue-700 underline">Open Application</a>
+                JavaScript is required to load the events calendar. Open it directly here:
+                <a href="https://memberservices.membee.com/feeds/Events/Event.aspx?cid=1852&wid=801" target="_blank" rel="noopener" class="text-blue-700 underline">Open Events Calendar</a>
               </div>
             </noscript>
           </div>
@@ -141,19 +145,9 @@
     </main>
 
     <footer class="bg-neutral-950 border-t border-ablegold/20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 text-center text-xs text-gray-500">© 2025 Association of Black Law Enforcers (A.B.L.E.)</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 text-center text-xs text-gray-500">© 2025 Association of Black Law Enforcers (A.B.L.E.)</div>
     </footer>
 
-    <script>
-      window.addEventListener('DOMContentLoaded', function () {
-        const loader = document.getElementById('membee-loading');
-        setTimeout(() => {
-          const container = document.getElementById('membee-container');
-          const hasContent = container && container.querySelector('*');
-          if (!hasContent && loader) loader.classList.remove('hidden');
-        }, 800);
-      });
-    </script>
     <script src="/assets/site.js" defer></script>
   </body>
 </html>

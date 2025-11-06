@@ -5,6 +5,7 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 Quickstart
 - View locally (MAMP Pro):
   - open https://ableorg.local/
+  - open https://ableorg.local/events/
   - open https://ableorg.local/gala2025/
   - open https://ableorg.local/gala2025/tickets.html
 - Fallback (if MAMP unavailable):
@@ -31,6 +32,17 @@ Architecture overview
   - Tickets page (gala2025/tickets.html): embeds Membee via provider script; simple language toggle; loader and fallback link.
   - Newsletter backend (gala2025/newsletter.php): validates email; optional server-side reCAPTCHA using env RECAPTCHA_SECRET; tries PHPMailer if available else PHP mail(); appends CSV log to gala2025/storage/newsletter.csv (auto-creates dir); returns JSON { ok: true } or { ok: false, error: "..." }.
   - Metadata: JSON-LD Event schema and Open Graph/Twitter tags in index.html.
+- Primary site (root) pages:
+  - Nav (desktop & mobile): [Home, About Us, Membership, Events, Contact].
+  - Events dropdown (desktop & mobile):
+    - Calendar → /events/index.html
+    - Career Fair → https://ableorg.local/events/index.html#id=113&cid=1852&wid=801
+    - Gala → /gala2025/index.html
+  - Shared JS: /assets/site.js controls the mobile menu on primary pages; do not include gala2025/assets/app.js on primary pages.
+  - Homepage:
+    - Hero slider uses thank-you posters: assets/images/gala2025-thankyou.jpg, assets/images/gala2025-thankyou-community.jpg, assets/images/gala2025-thankyou-committee.jpg
+    - CTA replaced with “Explore Events” linking to /events/index.html
+  - Events page (/events/index.html): embeds Membee calendar (see Docs/Membee Embedded.md) and is English-only.
 
 Critical invariants and pitfalls
 - Language visibility: use inline display:none for the inactive language block; never Tailwind hidden.
@@ -39,6 +51,12 @@ Critical invariants and pitfalls
 - Gala navigation: 'Home' link must appear first in both desktop and mobile menus across all gala2025 pages.
 - Newsletter contract: frontend expects JSON; honeypot field name website; ensure gala2025/storage/ is writable for CSV logging.
 - reCAPTCHA (optional): client sets window.RECAPTCHA_SITE_KEY; server reads RECAPTCHA_SECRET.
+- Primary nav structure (root pages): [Home, About Us, Membership, Events, Contact].
+- Events dropdown items and URLs must be consistent across pages:
+  - Calendar → /events/index.html
+  - Career Fair → https://ableorg.local/events/index.html#id=113&cid=1852&wid=801
+  - Gala → /gala2025/index.html
+- Mobile menu (primary site) depends on IDs (#mobile-menu-button, #mobile-menu) and class toggles (opacity-0, -translate-y-2, pointer-events-none, max-h-0) in /assets/site.js.
 
 Deployment notes and checks
 - No build step; deploy files directly. Keep any local backup folders out of Git.
@@ -49,6 +67,10 @@ Deployment notes and checks
 - Ticketing: deep links use tickets.html#id=112&display=list&cid=1852&wid=801; Membee embed present.
 - Verify gala2025/sitemap.xml and gala2025/robots.txt are correct.
 - Optional: configure SMTP for PHPMailer; otherwise PHP mail() is used.
+- Primary nav: verify Events dropdown links work (Calendar, Career Fair, Gala) in both desktop and mobile menus.
+- Events page (/events/index.html): verify Membee calendar embed loads.
+- Homepage: verify thank‑you posters rotate in the slider and the CTA links to /events/index.html.
+- Ensure no primary pages reference gala2025/assets/app.js (use /assets/site.js instead).
 
 Docs pointers
 - Docs/README.md — project overview, features, and structure

@@ -13,6 +13,16 @@ Updated 2025-09-19
 
 This is a professional landing page for The Association of Black Law Enforcers (A.B.L.E.) 2025 Annual Gala, featuring a bilingual (English/French) design with integrated ticket sales functionality.
 
+### Primary site (root) updates — 2025-11-06
+- Navigation on the primary site uses [Home, About Us, Membership, Events, Contact].
+- “Events” is a dropdown with:
+  - Calendar → /events/index.html
+  - Career Fair → https://ableorg.local/events/index.html#id=113&cid=1852&wid=801
+  - Gala → /gala2025/index.html
+- New page: /events/index.html embeds the Membee calendar (see Docs/Membee Embedded.md).
+- Shared JS: /assets/site.js powers the primary site’s mobile menu (do not include gala2025/assets/app.js on primary pages).
+- Homepage: hero slider shows thank‑you posters and the CTA is “Explore Events” linking to /events/index.html.
+
 **Event Details:**
 - **Event**: A.B.L.E 33rd Annual Scholarship and Awards Gala  
 - **Theme**: "Strength Through Struggle: A Journey of Perseverance and Endurance"
@@ -49,7 +59,7 @@ This is a professional landing page for The Association of Black Law Enforcers (
 - **Styling**: Tailwind CSS (via CDN)
 - **Fonts**: Google Fonts (Inter + Playfair Display)
 - **Hosting**: MAMP local server (port 80)
-- **Assets**: /assets for images, video, JS (app.js) and CSS (app.css)
+- **Assets**: /assets for images, video, JS (app.js, site.js) and CSS (app.css)
 
 ### Custom Tailwind Configuration
 ```javascript
@@ -86,8 +96,11 @@ tailwind.config = {
 │   ├── re-cap_32nd_awards_gala.mp4
 │   ├── event_flyer_en.jpeg
 │   ├── event_flyer_fr.jpeg
-│   ├── app.js                # Application JS (language toggle, video, newsletter, scroll‑spy)
+│   ├── app.js                # Gala app JS (language toggle, video, newsletter, scroll‑spy)
+│   ├── site.js               # Primary site mobile menu behavior (shared)
 │   └── app.css               # Optional overrides
+├── events/                   # Primary site Events page (Membee calendar)
+│   └── index.html
 ├── Docs/                     # Project docs
 └── _backup/                  # Local snapshots (ignored by Git)
 ```
