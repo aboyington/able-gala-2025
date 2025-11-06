@@ -26,6 +26,7 @@ Updated 2025-09-19
 - New page: /events/index.html embedding the Membee calendar.
 - Shared JS: introduced /assets/site.js for mobile menu behavior across primary pages; removed references to gala2025/assets/app.js from primary pages.
 - Homepage: CTA now "Explore Events" linking to /events/index.html; hero slider shows thank‑you posters (gala2025-thankyou.jpg, gala2025-thankyou-community.jpg, gala2025-thankyou-committee.jpg).
+- Legacy URL bridge: /index.php/event-calendar forwards to /events/index.html while preserving the URL hash; see docs/Career Fair Link Migration - Client Summary.md.
 - Newsletter submit handler attaches on DOMContentLoaded and prevents page navigation; form has a non-JS guard (onsubmit="return false`)`
 - Scroll‑spy active navigation implemented (hero, details, applications, 2024-recap, contact)
 - Deployment is live-only; no separate production folder. Files from this project are uploaded directly to the host (ableorg.ca and ableorg.ca/gala2025/).

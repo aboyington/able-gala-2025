@@ -22,6 +22,7 @@ This is a professional landing page for The Association of Black Law Enforcers (
 - New page: /events/index.html embeds the Membee calendar (see Docs/Membee Embedded.md).
 - Shared JS: /assets/site.js powers the primary site’s mobile menu (do not include gala2025/assets/app.js on primary pages).
 - Homepage: hero slider shows thank‑you posters and the CTA is “Explore Events” linking to /events/index.html.
+- Legacy URL bridge: /index.php/event-calendar redirects to /events/index.html and preserves the hash via JS; keeps previously shared short links working.
 
 **Event Details:**
 - **Event**: A.B.L.E 33rd Annual Scholarship and Awards Gala  
@@ -84,6 +85,7 @@ tailwind.config = {
 ```
 /Users/anthony/Sites/ableorg.ca/
 ├── index.html                 # Main landing page
+├── index.php                  # Legacy redirect shim (/index.php/event-calendar → /events/index.html)
 ├── awards.html               # Awards application page
 ├── scholarship.html          # Scholarship application page
 ├── tickets.html              # Tickets page (Membee embed)

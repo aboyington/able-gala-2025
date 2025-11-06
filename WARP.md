@@ -43,6 +43,7 @@ Architecture overview
     - Hero slider uses thank-you posters: assets/images/gala2025-thankyou.jpg, assets/images/gala2025-thankyou-community.jpg, assets/images/gala2025-thankyou-committee.jpg
     - CTA replaced with “Explore Events” linking to /events/index.html
   - Events page (/events/index.html): embeds Membee calendar (see Docs/Membee Embedded.md) and is English-only.
+  - Legacy link bridge: /index.php/event-calendar redirects to /events/index.html and preserves the hash (#...) via JS; keep index.php in place during the campaign.
 
 Critical invariants and pitfalls
 - Language visibility: use inline display:none for the inactive language block; never Tailwind hidden.
@@ -71,10 +72,12 @@ Deployment notes and checks
 - Events page (/events/index.html): verify Membee calendar embed loads.
 - Homepage: verify thank‑you posters rotate in the slider and the CTA links to /events/index.html.
 - Ensure no primary pages reference gala2025/assets/app.js (use /assets/site.js instead).
+- Legacy link bridge: test https://ableorg.ca/index.php/event-calendar#... redirects to /events/index.html#... correctly (hash preserved).
 
 Docs pointers
 - Docs/README.md — project overview, features, and structure
 - Docs/DEVELOPMENT.md — day‑to‑day development notes, status, and checklists
+- docs/Career Fair Link Migration - Client Summary.md — client-facing explanation of the legacy link bridge
 
 Notes on existing Docs/.warp.md
 - Treat this root WARP.md as canonical. Consider replacing Docs/.warp.md with a short pointer to this file to avoid divergence.
